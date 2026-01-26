@@ -52,7 +52,7 @@ Else Rnd(A₁₀^(3-3Y)-.5)-ᴇ3Rnd(A₁₀^(-3Y)-.5:
 A-(2Ans-999)₁₀^(3Y-3->A:
 IfEnd:
 
-D>0=>D+1->D:
+D≥0=>D+1->D:
 Goto 0:
 Lbl 4:
 π
