@@ -1,4 +1,4 @@
-Flipping Bits Game for fx-50FH II and fx-3650P II 438 bytes
+Flipping Bits Game for fx-50FH II and fx-3650P II 437 bytes
 
 ClrMemory:
 Fix 0:
