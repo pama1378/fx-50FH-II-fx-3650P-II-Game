@@ -10,7 +10,7 @@ M->A:
 A->B:
 
 Lbl 0:
-D=0=>A=B=>-2->D:
+D=0=>-Rnd(63Ran#+.5->D:
 D<0=>Goto 2:
 D◢
 For 0->C To 6 Step 3:
@@ -26,8 +26,12 @@ Lbl 2:
 0->X:
 0->Y:
 If D<0:
-Then Rnd(Ran#=>Rnd(3Ran#+.5->X:
-Rnd(3Ran#+.5->Y:
+Then For 5->C To 0:
+MM-:
+-D≥2^(C=>2^(C->M:
+M≠0=>3>log(2,M=>1+log(2,M->X=>Break:
+M≠0=>3≤log(2,M=>-2+log(2,M->Y=>Break:
+Next:
 Else ?->X:
 X≠Rnd(X=>Goto 2:
 Rnd(5⁻¹X-.3=>Goto 2:
