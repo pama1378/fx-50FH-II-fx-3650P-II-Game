@@ -29,8 +29,10 @@ If D<0:
 Then For 5->C To 0:
 MM-:
 -D≥2^(C=>2^(C->M:
-M≠0=>3>log(2,M=>1+log(2,M->X=>Break:
-M≠0=>3≤log(2,M=>-2+log(2,M->Y=>Break:
+M=0=>Goto 5:
+3>log(2,M=>1+log(2,M->X=>Break:
+3≤log(2,M=>-2+log(2,M->Y=>Break:
+Lbl 5:
 Next:
 Else ?->X:
 X≠Rnd(X=>Goto 2:
