@@ -9,7 +9,7 @@ Next:
 M->A:
 A->B:
 
--Rnd(63Ran#+.5->D:
+-Rnd(62Ran#+.5->D:
 Lbl 0:
 D<0=>Goto 2:
 D◢
