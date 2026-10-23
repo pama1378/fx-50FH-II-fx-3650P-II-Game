@@ -365,15 +365,33 @@ class Calc {
     if(!isFinite(v)) return 'Math ERROR';
     if(dms) return this.formatDMS(v);
     const m=this.mode;
-    if(m.fix!=null) return roundFixed(v, m.fix);
-    if(m.sci!=null) return v.toExponential(m.sci).replace('e','ᴇ');
-    // Norm1/2
+    if(v===0) return m.fix!=null ? (0).toFixed(m.fix) : '0';
+    if(m.fix!=null){
+      if(Math.abs(v)>=1e10) return sci(v, m.fix, true);
+      return v.toFixed(m.fix);            // Fix n：保留尾隨零
+    }
+    if(m.sci!=null) return sci(v, m.sci, false);
     const av=Math.abs(v);
-    if(v!==0 && (av<Math.pow(10,-m.norm) || av>=1e10)) return v.toExponential(9).replace('e','ᴇ');
-    let s = String(Math.round(v*1e10)/1e10);
-    if(s.includes('e')) s = Number(v).toPrecision(11).replace(/0+$/,'').replace(/\.$/,'');
-    return s;
+    const low=Math.pow(10,-m.norm);                  // Norm1=1e-2 / Norm2=1e-9
+    if(av<low || av>=1e10) return sci(v, 9, true);
+    return plain(v);
   }
+}
+
+function stripZeros(s){
+  return s.includes('.') ? s.replace(/0+$/,'').replace(/\.$/,'') : s;
+}
+function sci(v, dec, strip){
+  let e=Math.floor(Math.log10(Math.abs(v)));
+  let mant=v/Math.pow(10,e);
+  let s=mant.toFixed(dec);
+  if(Math.abs(Number(s))>=10){ mant/=10; e+=1; s=mant.toFixed(dec); }
+  return (strip?stripZeros(s):s)+'ᴇ'+e;
+}
+function plain(v){
+  let s=Number(v).toPrecision(10);
+  if(s.includes('e')) s=Number(v).toFixed(10);
+  return stripZeros(s);
 }
 
 function trim(v){ return Math.round(v*1e13)/1e13; }
