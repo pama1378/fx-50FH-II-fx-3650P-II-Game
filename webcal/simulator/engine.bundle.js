@@ -21,7 +21,7 @@ const MULTI = [
   ['Do','cmd'],['Prog','cmd'],['DT','cmd'],['Fix','cmd'],['Sci','cmd'],['Norm','cmd'],
   ['Deg','cmd'],['Rad','cmd'],['Gra','cmd'],['Cls','cmd'],
   ['Ans','var'],['Ran#','fn'],
-  ['Rnd(','fn'],['min(','fn'],['max(','fn'],['min','fn'],['max','fn'],['Abs(','fn'],['Int(','fn'],['Intg(','fn'],['Frac(','fn'],
+  ['Rnd(','fn'],['e^(','fn'],['∛(','fn'],['min(','fn'],['max(','fn'],['min','fn'],['max','fn'],['Abs(','fn'],['Int(','fn'],['Intg(','fn'],['Frac(','fn'],
   ['√(','fn'],['log(','fn'],['ln(','fn'],
   ['sin⁻¹(','fn'],['cos⁻¹(','fn'],['tan⁻¹(','fn'],
   ['sin(','fn'],['cos(','fn'],['tan(','fn'],
@@ -323,6 +323,8 @@ class Calc {
       case 'Intg': return Math.floor(a);
       case 'Frac': return a-Math.trunc(a);
       case '√': if(a<0) throw new Error(ERR.Math); return Math.sqrt(a);
+      case '∛': return Math.cbrt(a);
+      case 'e^': return Math.exp(a);
       case 'log': if(a<=0) throw new Error(ERR.Math); return Math.log10(a);
       case 'ln': if(a<=0) throw new Error(ERR.Math); return Math.log(a);
       case 'sin': return trim(this.sin(this.toRad(a)));
