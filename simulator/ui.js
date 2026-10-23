@@ -57,7 +57,7 @@ function press(k){
   switch(k){
     case 'SHIFT': S.shift=!S.shift; S.alpha=false; return render();
     case 'ALPHA': S.alpha=!S.alpha; S.shift=false; return render();
-    case 'MODE': S.mode='PRGM'; S.progIdx=0; showProg(listFor()); return;
+    case 'MODE': return cycleMode();
     case 'ON': reset(); return;
     case 'AC': S.entry=''; S.line1=''; S.line2=''; return render();
     case 'DEL': S.entry=S.entry.slice(0,-1); return showEntry();

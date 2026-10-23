@@ -4,13 +4,16 @@
 
 ## 🖩 网页模拟器（`simulator/`）
 
-**在浏览器里直接运行这些程序：** [打开模拟器](simulator/index.html) · [引擎自检](simulator/selftest.html)
+**单文件版（推荐）：** [`fx50fplus.html`](fx50fplus.html) —— 一个 HTML 文件，下载后双击即可运行，**不依赖任何外部 js/CSS**，可离线使用。
+
+**分文件版：** [打开模拟器](simulator/index.html) · [引擎自检](simulator/selftest.html)
 
 CASIO fx-50F PLUS / fx-50FH 模拟器：2 行 LCD、虚拟键盘、COMP / SD / REG / PRGM 四种模式、程序编辑与实时字节计数、六十进数输出。16 条程序可编译，15 条行为正确。
 
 | 想做什么 | 打开 |
 |---|---|
-| 直接玩 | [`simulator/index.html`](simulator/index.html) |
+| **单文件离线运行** | [`fx50fplus.html`](fx50fplus.html) |
+| 直接玩（网页版） | [`simulator/index.html`](simulator/index.html) |
 | 验证引擎没问题 | [`simulator/selftest.html`](simulator/selftest.html) |
 | 看已知数据问题 | [`simulator/KNOWN_ISSUES.md`](simulator/KNOWN_ISSUES.md) |
 
