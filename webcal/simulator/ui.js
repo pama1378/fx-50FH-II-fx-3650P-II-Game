@@ -30,7 +30,6 @@ function render(){
   if(calc.mode.fix != null) ind.push('FIX');
   if(calc.mode.sci != null) ind.push('SCI');
   ind.push(S.mode);
-  if(S.mode === 'PRGM') ind.push('PRGM');
   $('ind').textContent = ind.join(' ');
 
   $('l1').textContent = S.line1;
@@ -52,6 +51,7 @@ function press(k){
   if(S.awaitingInput) return inputKey(k);
   if(S.running) return runKey(k);
   if(S.mode === 'PRGM') return prgmKey(k);
+  if(S.mode === 'SD' || S.mode === 'REG') return statKey(k);
 
   // COMP 模式
   switch(k){
@@ -65,6 +65,53 @@ function press(k){
   }
   const tok = tokenFor(k);
   if(tok != null){ S.entry += tok; S.shift=false; S.alpha=false; showEntry(); }
+}
+
+function cycleMode(){
+  const order=['COMP','SD','REG','PRGM'];
+  const i=order.indexOf(S.mode);
+  S.mode=order[(i+1)%order.length];
+  S.entry=''; S.statIdx=0; S.error=false;
+  if(S.mode==='SD'||S.mode==='REG'){ calc.stat={freqOn:false,data:[],regMode:S.mode==='REG'?'Lin':'SD'}; }
+  if(S.mode==='PRGM'){ S.progIdx=0; showProg(listFor()); return; }
+  S.line1=S.mode; S.line2= S.mode==='COMP' ? '' : 'n='+calc.statSums().n;
+  render();
+}
+
+const STAT_LABELS=['n','Σx','Σx²','x̄','Σy','Σxy'];
+function statKey(k){
+  if(/^[0-9.]$/.test(k) || k===',' || k==='−'){ S.entry+= (k==='−'?'-':k); S.line1=S.entry; return render(); }
+  if(k==='DEL'){ S.entry=S.entry.slice(0,-1); S.line1=S.entry; return render(); }
+  if(k==='AC'){ S.entry=''; S.line1=S.mode; S.line2=''; return render(); }
+  if(k==='ON') return reset();
+  if(k==='MODE') return cycleMode();
+  if(k==='Ans'){
+    S.statIdx=(S.statIdx+1)%STAT_LABELS.length;
+    const lab=STAT_LABELS[S.statIdx];
+    let v;
+    try{ v=calc.getVar(lab); }catch(e){ v=NaN; }
+    S.line1=lab; S.line2=calc.format(v);
+    return render();
+  }
+  if(k==='EXE'){
+    if(!S.entry) return;
+    try{
+      const parts=S.entry.split(',');
+      const x=evalNum(parts[0]);
+      const y=parts.length>1?evalNum(parts[1]):0;
+      calc.addData(x,y,1); calc.ans=x;
+      S.line1='n='+calc.statSums().n;
+      S.line2= 'x='+calc.format(x) + (parts.length>1?' y='+calc.format(y):'');
+      S.entry='';
+      S.error=false;
+    }catch(e){ S.error=true; S.line1='ERROR'; S.line2=e.message.slice(0,18); }
+    return render();
+  }
+}
+
+function evalNum(str){
+  const p=new C.Parser(C.lex(str));
+  return calc.evalNode(p.parseExpr(0));
 }
 
 function tokenFor(k){
@@ -280,4 +327,10 @@ window.addEventListener('DOMContentLoaded', ()=>{
   render();
 });
 window.__press = press;  // 供測試
+window.__setMode = m => {
+  S.mode=m; S.entry=''; S.statIdx=0; S.line1=m; S.line2='';
+  if(m==='SD'||m==='REG') calc.stat={freqOn:false,data:[],regMode:m==='REG'?'Lin':'SD'};
+  render();
+};
+window.__state = () => S;
 })();
