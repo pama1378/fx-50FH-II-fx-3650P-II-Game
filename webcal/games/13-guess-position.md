@@ -28,8 +28,8 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 ```
 ClrMemory: 500 - Ran# 10^( 3→A:
 500 - Ran# 10^( 3→B:
-Lbl 0: ?→X: ?→Y: √( (A - X)2 + (B - Y)2→X : 1M+:
-X => Goto 0: Mo
+Lbl 0: ?→X: ?→Y: √( (A - X)² + (B - Y)²→X : 1M+:
+X => Goto 0: M°
 ```
 
 ## 玩法与说明（原文）
@@ -39,9 +39,8 @@ X => Goto 0: Mo
 程式会随机产生一个座标(x, y)，其中 -499≦x≦500及-499≦y≦500，游戏的目的是要找出这个位置，每次估位置的座标时，若果
 答案不正确会显示估计座标与正确正确座标的距离作为参，直至估的位置座标正确，会显示所用的总次数(六十进数的值)。
 
-注意: 10^( 是按shift log，Mo 是按
-ALPHA M+
-o,,,
+注意: 10^( 是按shift log，M° 是按
+ALPHA M+ °'"
 
 操作方法:
 

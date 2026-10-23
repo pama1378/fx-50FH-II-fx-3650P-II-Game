@@ -37,7 +37,7 @@ ClrMemory: While A=BM+:
 M◢ Fix 0:
 Rnd( ( . 5 + Ran# )(B + E3MM→B:
 Norm 1◢ ?→A: WhileEnd:
-M◢ B◢ A ◢ 0-1
+M◢ B◢ A ◢ 0⁻¹
 ```
 
 ## 程式二 · 110 bytes
@@ -45,7 +45,7 @@ M◢ B◢ A ◢ 0-1
 ```
 ClrMemory: While (C≦0) + (C≧21: ?→C: WhileEnd:
 While (M≦0) + (M≧E3: ?→M: WhileEnd: 1M-:
-Lbl 0: C≦0 => 0-1: 0→B: 1M+:
+Lbl 0: C≦0 => 0⁻¹: 0→B: 1M+:
 M◢ Fix 0:
 Rnd( ( . 5 + Ran# )(B + E3MM→B: Norm 1◢ ?→A:
 A=B => Goto 0: C-1→C◢ M◢ B◢ A◢ Goto 0

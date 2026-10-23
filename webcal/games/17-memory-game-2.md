@@ -47,16 +47,16 @@ DT: Rnd((.5+Ran#)(B+E3XX
 ; 0 DT:
 Norm 1: Ans◢ 0: ?→A: ; 0
 DT: Ans→Y:
-A=Y => Goto 0 : X◢ Y◢ A ◢ 0-1
+A=Y => Goto 0 : X◢ Y◢ A ◢ 0⁻¹
 ```
 
 ## 程式二 · 132 bytes
 
 ```
-0→B: Lbl 1: ?→C: C2≧21C => Goto 1:
-Lbl 2: ?→M: M2≧E3M =>
+0→B: Lbl 1: ?→C: C²≧21C => Goto 1:
+Lbl 2: ?→M: M²≧E3M =>
 Goto 2:
-M-1→M: Lbl 0: C≦0 => 0-1: 1+M→M◢ Fix 0:
+M-1→M: Lbl 0: C≦0 => 0⁻¹: 1+M→M◢ Fix 0:
 FreqOn: E99 DT: - Ans
 DT: Rnd((.5+Ran#)(B+E3MM
 ; 0 DT:

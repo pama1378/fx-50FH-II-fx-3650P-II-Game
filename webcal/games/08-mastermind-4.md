@@ -34,7 +34,7 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 
 ```
 FreqOn: 0→Y: Lbl 0: Fix 0: Y<1 => Rnd( 9Ran#→A:
-0→X ?→X: Y+ 4-1 →Y: 9(X=A ,
+0→X ?→X: Y+ 4⁻¹ →Y: 9(X=A ,
 10^( X DT:
 A→X: B→A: C→B: D→C: X→D: Y- Rnd(Y => Goto 0:
 For 9→M To 0 Step - 1: Rnd( Σy10^(

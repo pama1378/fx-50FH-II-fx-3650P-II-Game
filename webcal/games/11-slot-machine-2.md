@@ -49,7 +49,7 @@ X≧5 => 5X>M =>
 Goto 0: XM-: Rnd( 9Ran#→A◢
 Rnd( 9Ran#→B◢ Rnd( 9Ran#→C◢ Norm 1:
 ABC=0 => 3XM+:
-ABC=1 => 13XM+: ABC=73
+ABC=1 => 13XM+: ABC=7³
 => 83XM+:
 6X((A=B)+(A=C)+(B=CM+: 1=Abs(A-B
 => 6X(2B-A=CM+:

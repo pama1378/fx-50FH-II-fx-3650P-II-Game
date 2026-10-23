@@ -28,7 +28,7 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 ```
 ClrMemory: Fix 0: 18 + Rnd( 9Ran#→A:
 Norm 1: Ans→B: While 1: ?→A:
-A3 - 6A2 + 11A - 6 => log(
+A³ - 6A² + 11A - 6 => log(
 0: B - A→B:
 log( B: B→A: M=0→M: WhileEnd
 ```

@@ -45,7 +45,7 @@ ClrMemory: E3 Ran#→B: Lbl
 0: ?→A: 1M+:
 A-B => Ans ÷ Abs( Ans =>
 Goto 0◢
-Mo
+M°
 ```
 
 ## 玩法与说明（原文）
@@ -59,9 +59,8 @@ Mo
 
 程式编写日期: 2010年11月16日
 
-注意: E 是按 EXP，Mo 是按
-ALPHA M+
-o,,,
+注意: E 是按 EXP，M° 是按
+ALPHA M+ °'"
 
 操作方法:
 

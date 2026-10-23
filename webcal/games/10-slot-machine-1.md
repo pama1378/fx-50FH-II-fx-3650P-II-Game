@@ -29,7 +29,7 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 ClrMemory: While 1M-: Fix 0: Rnd( 9Ran#→A◢
 Rnd( 9Ran#→B◢ Rnd( 9Ran#→C:
 Norm 1◢
-ABC=73
+ABC=7³
 => 92M+: 3((A=B)+(A=C)+(B=CM+:
 M◢ WhileEnd
 ```
