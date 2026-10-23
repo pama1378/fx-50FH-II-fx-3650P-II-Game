@@ -397,7 +397,7 @@ function splitStatements(tokens){
   const out=[]; let cur=[]; let depth=0;
   const flush=()=>{ if(cur.length){ out.push({kind:'stmt',t:cur}); cur=[]; } };
   for(const t of tokens){
-    if(t.v==='(' || (t.k==='fn' && t.v.endsWith('('))) depth++;
+    if(t.v==='(') depth++;
     else if(t.v===')'){ if(depth>0) depth--; }
     if(depth<=0 && (t.v==='Else'||t.v==='Then') && cur.length){
       flush(); cur.push(t); continue;
@@ -442,7 +442,7 @@ function pop(stack,op){
 function topIdx(t,ch){
   let d=0;
   for(let i=0;i<t.length;i++){
-    if(t[i].v==='(' || (t[i].k==='fn' && t[i].v.endsWith('('))) d++;
+    if(t[i].v==='(') d++;
     else if(t[i].v===')') d--;
     else if(d===0 && t[i].v===ch) return i;
   }
