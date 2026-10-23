@@ -203,7 +203,14 @@ function showEdit(){
 function showProg(list){
   const p = list[S.progIdx];
   S.line1 = `${S.progIdx+1}/${list.length} ${p.title}`.slice(0,16);
-  S.line2 = `P${p.n} ${p.declared?p.declared+'b':''}`;
+  let comp = 0, err = '';
+  try{ comp = new C.Program(p.code).bytes; }catch(e){ err = ' ERR'; }
+  if(p.declared && comp && comp !== p.declared){
+    S.line2 = `${p.declared}b(算${comp})${err}`;   // 标称与计算不一致时如实显示
+  } else {
+    S.line2 = `${p.declared || comp}b${err}`;
+  }
+  S.error = !!err;
   render();
 }
 
