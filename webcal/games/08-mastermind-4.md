@@ -39,6 +39,7 @@ FreqOn: 0→Y: Lbl 0: Fix 0: Y<1 => Rnd( 9Ran#→A:
 A→X: B→A: C→B: D→C: X→D: Y- Rnd(Y => Goto 0:
 For 9→M To 0 Step - 1: Rnd( Σy10^(
 - M→X:
+If Ans: Then X - (M=A) - (M=B) - (M=C) - (M=D:
 X - Ans(Ans>0 , - X10^(MDT: IfEnd: Next: Norm 1:
 Σx◢ Clrstat: Ans-40=>Goto 0: Y
 ```
@@ -56,8 +57,6 @@ X - Ans(Ans>0 , - X10^(MDT: IfEnd: Next: Norm 1:
 
 注意: 蓝色的英文字为统计模式中的变数(Σx 按 Shift 1 2，Σy
 按 Shift 1 → 2)，E 是按 EXP。
-
-If Ans: Then X - (M=A) - (M=B) - (M=C) - (M=D:
 
 用法示范 (假设答案是3650) :
 
