@@ -129,7 +129,28 @@ function prgmKey(k){
     case '÷': S.progIdx=(S.progIdx+list.length-1)%list.length; return showProg(list);
     case 'EXE': return startRun(list[S.progIdx]);
     case 'AC': S.mode='COMP'; S.line1=''; S.line2=''; return render();
+    case 'DEL': {
+      S.customCode = S.customCode.slice(0,-1);
+      return showEdit();
+    }
   }
+  // 其餘按鍵：在程式編輯區追加 token
+  const tok = tokenFor(k);
+  if(tok != null){
+    S.customCode += tok;
+    S.shift=false; S.alpha=false;
+    showEdit();
+  }
+}
+
+function showEdit(){
+  let bytes = 0, msg = '';
+  try{ bytes = new C.Program(S.customCode).bytes; }
+  catch(e){ msg = ' Syntax'; }
+  S.line1 = S.customCode.slice(-16);
+  S.line2 = bytes + 'b' + msg;
+  S.error = !!msg;
+  render();
 }
 
 function showProg(list){

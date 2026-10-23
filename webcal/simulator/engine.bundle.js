@@ -398,6 +398,11 @@ function splitStatements(tokens){
   for(const t of tokens){
     if(t.v==='(') depth++;
     else if(t.v===')') depth--;
+    // Else / Then 本身是语句：前面若有内容先断开
+    if(depth<=0 && (t.v==='Else'||t.v==='Then') && cur.length){
+      out.push({kind:'stmt',t:cur}); cur=[];
+      cur.push(t); continue;
+    }
     if(depth<=0 && (t.v===':'||t.v==='◢')){
       if(cur.length){ out.push({kind:'stmt',t:cur}); cur=[]; }
       if(t.v==='◢') out.push({kind:'disp'});
@@ -457,6 +462,8 @@ class Program {
     this.size=this.bytes;
   }
   evalT(calc,t){
+    // 原頁偶把 Else/Then 與同一行代碼併在一起，這裡先剝掉前導命令
+    while(t && t.length && (t[0].v==='Else'||t[0].v==='Then')) t=t.slice(1);
     if(!t||!t.length) throw new Error(ERR.Syntax);
     const p=new Parser(t);
     return calc.evalNode(p.parseExpr(0));
@@ -491,6 +498,8 @@ class Program {
     if(f0==='Else'||f0==='Then'){
       return t.length>1 ? yield* this.exec(calc,t.slice(1)) : null;
     }
+    // 嵌套語句裡也可能帶 DT（如 Else X , Y DT）
+    if(t.some(x=>x.v==='DT')) return yield* this.execDT(calc,t);
     const lastT=t[t.length-1];
     if(lastT && (lastT.v==='M+'||lastT.v==='M-') && t.length>1){
       const v=this.evalT(calc,t.slice(0,-1));
