@@ -1,10 +1,10 @@
-# Original programs — 原創程式
+# Original programs — 原创程式
 
-這個目錄放**你自己寫的**程式，與 `games/`（轉錄他人作品）分開，避免授權混淆。
+这个目录放**你自己写的**程式，与 `games/`（转录他人作品）分开，避免授权混淆。
 
-## 檔名
+## 档名
 
-`NN-slug.md`，與 `games/` 編號獨立。
+`NN-slug.md`，与 `games/` 编号独立。
 
 ## Front matter
 
@@ -20,13 +20,13 @@ platform: "CASIO fx-50FH / fx-50F PLUS"
 ---
 ```
 
-## 內容
+## 内容
 
-1. 程式碼（fenced block，逐行，可直接鍵入）
-2. 玩法說明
-3. 演算法要點（為甚麼這樣寫才省 bytes）
-4. 已驗證的機型
+1. 程式码（fenced block，逐行，可直接键入）
+2. 玩法说明
+3. 演算法要点（为甚么这样写才省 bytes）
+4. 已验证的机型
 
-## 硬預算
+## 硬预算
 
-fx-50FH 程式區共 680 bytes，分給最多 4 個程式位。單一程式超過 680 bytes 鍵不進去。
+fx-50FH 程式区共 680 bytes，分给最多 4 个程式位。单一程式超过 680 bytes 键不进去。

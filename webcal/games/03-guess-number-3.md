@@ -1,5 +1,5 @@
 ---
-title: "估數字(III)"
+title: "估数字(III)"
 english_title: "Guess a number III"
 slug: guess-number-3
 source: http://webcal.freehostia.com/casio.fx-50FH/GuessNumberIII.htm
@@ -9,13 +9,13 @@ platform: "CASIO fx-50FH / fx-50F PLUS / fx-3650P II"
 authors:
   - "SuperMANganese"
 credits:
-  - "程式由網友 SuperMANganese 提供。…"
+  - "程式由网友 SuperMANganese 提供。…"
 dates:
-  - "網友提供程式日期: 2009年7月30日"
+  - "网友提供程式日期: 2009年7月30日"
 license: "see NOTICE.md — code unmodified, rights with original authors"
 ---
 
-# 估數字(III)
+# 估数字(III)
 
 **Guess a number III** · 1 program(s) · [original page (GuessNumberIII.htm)](http://webcal.freehostia.com/casio.fx-50FH/GuessNumberIII.htm)
 
@@ -23,11 +23,11 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 
 **作者：** SuperMANganese
 
-原頁署名原文：
+原页署名原文：
 
-> 程式由網友 SuperMANganese 提供。…
+> 程式由网友 SuperMANganese 提供。…
 
-**網友提供程式日期: 2009年7月30日**
+**网友提供程式日期: 2009年7月30日**
 
 ## 程式 · 132 bytes
 
@@ -45,36 +45,36 @@ X>Y => X→D : Ans => Goto 1: Y>X
 Ans => Goto 1: Mo
 ```
 
-## 玩法與說明（原文）
+## 玩法与说明（原文）
 
-網友提供程式日期: 2009年7月30日
+网友提供程式日期: 2009年7月30日
 
-程式由網友 SuperMANganese 提供。
-這個版本加入了防作弊的特點，另外亦可以自定隨機數的最大整數值，遊戲的目的是要找出這個隨機數字，每次估數字前會顯示該數值的可能範圍，若果估的數字正確，會顯示所用的總次(六十進數的值)。
+程式由网友 SuperMANganese 提供。
+这个版本加入了防作弊的特点，另外亦可以自定随机数的最大整数值，游戏的目的是要找出这个随机数字，每次估数字前会显示该数值的可能范围，若果估的数字正确，会显示所用的总次(六十进数的值)。
 
 注意: E 是按 EXP，而 Mo 是按 ALPHA MR
 o,,,
 
-操作示範(假定要估的數值是924):
+操作示范(假定要估的数值是924):
 
-按 Prog 1 再按 1000 EXE (表示要產生1-1000的隨機數及顯示1)
+按 Prog 1 再按 1000 EXE (表示要产生1-1000的随机数及显示1)
 
-EXE (顯示1000，表示答案為1-1000的整數)
+EXE (显示1000，表示答案为1-1000的整数)
 
-EXE 777 EXE (假設估777及顯示777) EXE (顯示1000，表示答案為777-1000的整數)
+EXE 777 EXE (假设估777及显示777) EXE (显示1000，表示答案为777-1000的整数)
 
-950 EXE (假設估950及顯示888) EXE (顯示950，表示答案為888-950的整數)
+950 EXE (假设估950及显示888) EXE (显示950，表示答案为888-950的整数)
 
-924 EXE (假設估924，顯示4o0o0，表示4次估中答案)
+924 EXE (假设估924，显示4o0o0，表示4次估中答案)
 
-註1: 輸入數字非整數會MATH ERROR；輸入數字超出範圍，會重新顯示範圍及要求重新輸入，但會當作估一次。
+注1: 输入数字非整数会MATH ERROR；输入数字超出范围，会重新显示范围及要求重新输入，但会当作估一次。
 
-註2: 如想知道答案，在顯示可能範圍時終止程式，再按按 RCL Y 可顯示答案。
+注2: 如想知道答案，在显示可能范围时终止程式，再按按 RCL Y 可显示答案。
 
-註3: 3650可能會datafull，此時按1(editoff)即可。
+注3: 3650可能会datafull，此时按1(editoff)即可。
 
-註4: 隨機機範圍可由1~3至1~1000000000。
+注4: 随机机范围可由1~3至1~1000000000。
 
 ---
 
-*源碼未經改動，原樣轉錄。見 [NOTICE](../NOTICE.md)。*
+*源码未经改动，原样转录。见 [NOTICE](../NOTICE.md)。*

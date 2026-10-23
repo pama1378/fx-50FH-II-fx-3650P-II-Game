@@ -1,5 +1,5 @@
 ---
-title: "記憶遊戲"
+title: "记忆游戏"
 english_title: "Memory game II"
 slug: memory-game-2
 source: http://webcal.freehostia.com/casio.fx-50FH/memory_game2.htm
@@ -12,14 +12,14 @@ referenced:
   - "SuperMANganese"
   - "roviury"
 credits:
-  - "程式由網友\ntonylcc1995 提供，SuperMANganese提供防作弊版本的意見及方法。"
-  - "網友 roviury 提供程式簡化意見。"
+  - "程式由网友\ntonylcc1995 提供，SuperMANganese提供防作弊版本的意见及方法。"
+  - "网友 roviury 提供程式简化意见。"
 dates:
   - "程式更新日期: 2011年3月21日"
 license: "see NOTICE.md — code unmodified, rights with original authors"
 ---
 
-# 記憶遊戲
+# 记忆游戏
 
 **Memory game II** · 2 program(s) · [original page (memory_game2.htm)](http://webcal.freehostia.com/casio.fx-50FH/memory_game2.htm)
 
@@ -27,14 +27,14 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 
 **作者：** tonylcc1995
 
-*SuperMANganese 提供防作弊版本的意見及方法；roviury 提供程式簡化意見*
+*SuperMANganese 提供防作弊版本的意见及方法；roviury 提供程式简化意见*
 
-原頁署名原文：
+原页署名原文：
 
-> 程式由網友
-tonylcc1995 提供，SuperMANganese提供防作弊版本的意見及方法。
+> 程式由网友
+tonylcc1995 提供，SuperMANganese提供防作弊版本的意见及方法。
 
-> 網友 roviury 提供程式簡化意見。
+> 网友 roviury 提供程式简化意见。
 
 **程式更新日期: 2011年3月21日**
 
@@ -65,87 +65,87 @@ DT: Ans→B:
 A=B => Goto 0 : C-1→C◢ M◢ B◢ A◢ Goto 0
 ```
 
-## 玩法與說明（原文）
+## 玩法与说明（原文）
 
-記憶遊戲(II)
+记忆游戏(II)
 
-程式由網友
-tonylcc1995 提供，SuperMANganese提供防作弊版本的意見及方法。
+程式由网友
+tonylcc1995 提供，SuperMANganese提供防作弊版本的意见及方法。
 
-網友 roviury 提供程式簡化意見。
+网友 roviury 提供程式简化意见。
 
-與記憶遊戲(I)比較，這個版本程式加入了防作弊的特點。
+与记忆游戏(I)比较，这个版本程式加入了防作弊的特点。
 
 程式更新日期: 2011年3月21日
 
-程式需要在 SD 模式下執行，因此在選擇新程式位置後，按 4 選用SD模式。
+程式需要在 SD 模式下执行，因此在选择新程式位置后，按 4 选用SD模式。
 
 注意 : E 是按 EXP。
 
-遊戲玩法及示範:
+游戏玩法及示范:
 
-按 Prog 1 (顯示關數1)
+按 Prog 1 (显示关数1)
 
-EXE (這時會顯示一個記憶數字，假設是123)
+EXE (这时会显示一个记忆数字，假设是123)
 
-EXE (顯示A?表示輸入要記憶數字)
+EXE (显示A?表示输入要记忆数字)
 
-123 EXE (輸入記憶數字，由於正確再顯示新關數為2)
+123 EXE (输入记忆数字，由于正确再显示新关数为2)
 
-EXE (顯示另一個記憶數字，假設是4567)
+EXE (显示另一个记忆数字，假设是4567)
 
-EXE (顯示A?表示輸入要記憶數字)
+EXE (显示A?表示输入要记忆数字)
 
-4568 EXE (輸入記憶數字，由於答錯顯示M及2(顯示錯誤時的關數))
+4568 EXE (输入记忆数字，由于答错显示M及2(显示错误时的关数))
 
-EXE (顯示B及4567(記憶數字) )
+EXE (显示B及4567(记忆数字) )
 
-EXE (顯示A及4568(你輸入的數字) )
+EXE (显示A及4568(你输入的数字) )
 
-EXE (顯示Math ERROR表示遊戲結束)
+EXE (显示Math ERROR表示游戏结束)
 
-程式二遊戲玩法及示範:
+程式二游戏玩法及示范:
 
 按 Prog 1
 
-再按 2 EXE (輸入2表示只有2次機會(你可以輸入1至20的數值))
+再按 2 EXE (输入2表示只有2次机会(你可以输入1至20的数值))
 
-1 EXE (輸入1表示開始時的關數為1(你可以輸入1至999的數值)，這時顯示關數M為1)
+1 EXE (输入1表示开始时的关数为1(你可以输入1至999的数值)，这时显示关数M为1)
 
-EXE (這時會顯示一個記憶數字，假設是123)
+EXE (这时会显示一个记忆数字，假设是123)
 
-EXE (顯示A?表示輸入要記憶數字)
+EXE (显示A?表示输入要记忆数字)
 
-123 EXE (輸入記憶數字，由於正確再顯示新關數M為2)
+123 EXE (输入记忆数字，由于正确再显示新关数M为2)
 
-EXE (顯示另一個記憶數字，假設是4567)
+EXE (显示另一个记忆数字，假设是4567)
 
-EXE (顯示A?表示輸入要記憶數字)
+EXE (显示A?表示输入要记忆数字)
 
-4568 EXE (輸入記憶數字，由於答錯顯示C為1(即還有多1次機會))
+4568 EXE (输入记忆数字，由于答错显示C为1(即还有多1次机会))
 
-EXE (顯示M為2(顯示錯誤時的關數))
+EXE (显示M为2(显示错误时的关数))
 
-EXE (顯示B及4567(記憶數字) )
+EXE (显示B及4567(记忆数字) )
 
-EXE (顯示A及4568(你輸入的數字) )
+EXE (显示A及4568(你输入的数字) )
 
-EXE (顯示遊戲的關數M為2)
+EXE (显示游戏的关数M为2)
 
-EXE (顯示另一個記憶數字，假設是7653)
+EXE (显示另一个记忆数字，假设是7653)
 
-EXE (顯示A?表示輸入要記憶數字)
+EXE (显示A?表示输入要记忆数字)
 
-7633 EXE (輸入記憶數字，由於答錯顯示C為0(即沒有機會了))
+7633 EXE (输入记忆数字，由于答错显示C为0(即没有机会了))
 
-EXE (顯示M為2(顯示錯誤時的關數))
+EXE (显示M为2(显示错误时的关数))
 
-EXE (顯示B及7653(記憶數字) )
+EXE (显示B及7653(记忆数字) )
 
-EXE (顯示A及7633(你輸入的數字) )
+EXE (显示A及7633(你输入的数字) )
 
-EXE (顯示Math ERROR表示遊戲結束)
+EXE (显示Math ERROR表示游戏结束)
 
 ---
 
-*源碼未經改動，原樣轉錄。見 [NOTICE](../NOTICE.md)。*
+*源码未经改动，原样转录。见 [NOTICE](../NOTICE.md)。*

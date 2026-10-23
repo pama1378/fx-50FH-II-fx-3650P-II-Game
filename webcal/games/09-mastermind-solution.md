@@ -1,5 +1,5 @@
 ---
-title: "機妙算解答(MindMaster Solution)"
+title: "机妙算解答(MindMaster Solution)"
 english_title: "MindMaster solution"
 slug: mastermind-solution
 source: http://webcal.freehostia.com/casio.fx-50FH/masterMind_solution.htm
@@ -9,13 +9,13 @@ platform: "CASIO fx-50FH / fx-50F PLUS / fx-3650P II"
 authors:
   - "SuperMANganese"
 credits:
-  - "程式由網友 SuperMANganese 提供。"
+  - "程式由网友 SuperMANganese 提供。"
 dates:
-  - "網友提供程式日期: 2009年7月24日"
+  - "网友提供程式日期: 2009年7月24日"
 license: "see NOTICE.md — code unmodified, rights with original authors"
 ---
 
-# 機妙算解答(MindMaster Solution)
+# 机妙算解答(MindMaster Solution)
 
 **MindMaster solution** · 1 program(s) · [original page (masterMind_solution.htm)](http://webcal.freehostia.com/casio.fx-50FH/masterMind_solution.htm)
 
@@ -23,11 +23,11 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 
 **作者：** SuperMANganese
 
-原頁署名原文：
+原页署名原文：
 
-> 程式由網友 SuperMANganese 提供。
+> 程式由网友 SuperMANganese 提供。
 
-**網友提供程式日期: 2009年7月24日**
+**网友提供程式日期: 2009年7月24日**
 
 ## 程式 · 494 bytes
 
@@ -68,44 +68,44 @@ If (Σx =Σy)+(B=4: Then M→A:Y→M:
 A→Y:IfEnd:WhileEnd
 ```
 
-## 玩法與說明（原文）
+## 玩法与说明（原文）
 
-程式由網友 SuperMANganese 提供。
+程式由网友 SuperMANganese 提供。
 
-網友提供程式日期: 2009年7月24日
+网友提供程式日期: 2009年7月24日
 
-程式需要在 REG Lin 模式下執行，因此在選擇新程式位置後，按 5 1 選用REG Lin模式。
+程式需要在 REG Lin 模式下执行，因此在选择新程式位置后，按 5 1 选用REG Lin模式。
 
-注意: 藍色的英文字為統計模式中的變數(Σx 按 Shift 1 2，Σy
+注意: 蓝色的英文字为统计模式中的变数(Σx 按 Shift 1 2，Σy
 按 Shift 1 → 2，n 按 Shift 1 3，minX
 按 Shift 2 2 1)，E 是按 EXP。
 
-用法示範 (假設答案是0137) :
+用法示范 (假设答案是0137) :
 
-按 Prog 1 (顯示1100,表示要猜1100)
+按 Prog 1 (显示1100,表示要猜1100)
 
-1 EXE (表示1個數字及位置對) 1 EXE (表示1個數字對但位置錯)
+1 EXE (表示1个数字及位置对) 1 EXE (表示1个数字对但位置错)
 
-(顯示3322,表示要猜3322)
+(显示3322,表示要猜3322)
 
-0 EXE (表示0個數字及位置對) 1 EXE (表示1個數字對但位置錯)
+0 EXE (表示0个数字及位置对) 1 EXE (表示1个数字对但位置错)
 
-(顯示5544) 0 EXE 0 EXE
+(显示5544) 0 EXE 0 EXE
 
-(顯示7766) 0 EXE 1 EXE
+(显示7766) 0 EXE 1 EXE
 
-(顯示1144) 1 EXE 0 EXE
+(显示1144) 1 EXE 0 EXE
 
-(顯示0137) (即答案是0137)
+(显示0137) (即答案是0137)
 
-註1: 此程式若在不重複版使用，請注意有些mastermind程式(例如mastermind(I))不能正確判斷重複的情況，請在第二行及第八行的
-?→B:後加上程式碼 .5(B-A→B: 即可使用。
+注1: 此程式若在不重复版使用，请注意有些mastermind程式(例如mastermind(I))不能正确判断重复的情况，请在第二行及第八行的
+?→B:后加上程式码 .5(B-A→B: 即可使用。
 
-註2: 請留意程式執行後會變成Rad模式，按 Shift MODE 1 可返回Deg模式。若果 不想這樣的話, 可刪去第一行的 Rad:
-並在每一個π後加上細 r (按shift Ans 2))。
+注2: 请留意程式执行后会变成Rad模式，按 Shift MODE 1 可返回Deg模式。若果 不想这样的话, 可删去第一行的 Rad:
+并在每一个π后加上细 r (按shift Ans 2))。
 
-註3: 理論上程式可在九步內得解答，當然這不一定是最快的解法，但基於計數機的限制，故採用這個有系統的解法。
+注3: 理论上程式可在九步内得解答，当然这不一定是最快的解法，但基于计数机的限制，故采用这个有系统的解法。
 
 ---
 
-*源碼未經改動，原樣轉錄。見 [NOTICE](../NOTICE.md)。*
+*源码未经改动，原样转录。见 [NOTICE](../NOTICE.md)。*

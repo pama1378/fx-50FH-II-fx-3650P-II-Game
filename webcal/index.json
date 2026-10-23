@@ -2,7 +2,7 @@
   {
     "n": 1,
     "slug": "guess-number-1",
-    "title": "估數字(I)",
+    "title": "估数字(I)",
     "en": "Guess a number I",
     "authors": [
       "WebCal 站主"
@@ -14,10 +14,10 @@
     "programs": 1,
     "bytes": 32,
     "credits": [
-      "程式是參考論壇網友、yathimc及SuperMANganese的程式編寫及修改。"
+      "程式是参考论坛网友、yathimc及SuperMANganese的程式编写及修改。"
     ],
     "dates": [
-      "程式編寫日期: 2010年11月16日"
+      "程式编写日期: 2010年11月16日"
     ],
     "references": [
       "http://webcal.forumcircle.com/viewtopic.php?t=1481"
@@ -27,16 +27,16 @@
   {
     "n": 2,
     "slug": "guess-number-2",
-    "title": "估數字(II)",
+    "title": "估数字(II)",
     "en": "Guess a number II",
     "authors": [
-      "未具名網友"
+      "未具名网友"
     ],
     "referenced": [],
     "programs": 1,
     "bytes": 64,
     "credits": [
-      "程式由網友 提供，\n計算機會隨機產生一個1-1000的整數，遊戲的目的是要找出這個數字，每次估數字前會顯示該數值的可能範圍(以小數形式表示)，若果估的數字正確，會顯示所用的總次(六十進數的值)。"
+      "程式由网友 提供，\n计算机会随机产生一个1-1000的整数，游戏的目的是要找出这个数字，每次估数字前会显示该数值的可能范围(以小数形式表示)，若果估的数字正确，会显示所用的总次(六十进数的值)。"
     ],
     "dates": [
       "更新日期: 2011年2月3日"
@@ -49,7 +49,7 @@
   {
     "n": 3,
     "slug": "guess-number-3",
-    "title": "估數字(III)",
+    "title": "估数字(III)",
     "en": "Guess a number III",
     "authors": [
       "SuperMANganese"
@@ -58,10 +58,10 @@
     "programs": 1,
     "bytes": 132,
     "credits": [
-      "程式由網友 SuperMANganese 提供。…"
+      "程式由网友 SuperMANganese 提供。…"
     ],
     "dates": [
-      "網友提供程式日期: 2009年7月30日"
+      "网友提供程式日期: 2009年7月30日"
     ],
     "references": [],
     "url": "http://webcal.freehostia.com/casio.fx-50FH/GuessNumberIII.htm"
@@ -69,7 +69,7 @@
   {
     "n": 4,
     "slug": "guess-the-number-game",
-    "title": "猜數字遊戲",
+    "title": "猜数字游戏",
     "en": "Guess the number game",
     "authors": [
       "lugia249"
@@ -78,7 +78,7 @@
     "programs": 1,
     "bytes": 182,
     "credits": [
-      "程式由網友\nlugia249 提供，玩家輸入三個不同整數(1-30)，猜測電腦的攪珠結果。"
+      "程式由网友\nlugia249 提供，玩家输入三个不同整数(1-30)，猜测电脑的搅珠结果。"
     ],
     "dates": [
       "更新日期: 2011年1月27日"
@@ -89,7 +89,7 @@
   {
     "n": 5,
     "slug": "mastermind-1",
-    "title": "機妙算(MindMaster)遊戲",
+    "title": "机妙算(MindMaster)游戏",
     "en": "MindMaster I",
     "authors": [
       "WebCal 站主"
@@ -99,7 +99,7 @@
     "bytes": 320,
     "credits": [],
     "dates": [
-      "程式編寫日期: 2007年9月17日"
+      "程式编写日期: 2007年9月17日"
     ],
     "references": [],
     "url": "http://webcal.freehostia.com/casio.fx-50FH/masterMind.htm"
@@ -107,7 +107,7 @@
   {
     "n": 6,
     "slug": "mastermind-2",
-    "title": "機妙算(MindMaster)遊戲",
+    "title": "机妙算(MindMaster)游戏",
     "en": "MindMaster II",
     "authors": [
       "SuperMANganese"
@@ -116,7 +116,7 @@
     "programs": 2,
     "bytes": 372,
     "credits": [
-      "程式由網友 SuperMANganese\n提供。與前一個版本比較，改進之處是可以容許數字重複，因此可能的情況會增多，猜測難度亦提高。"
+      "程式由网友 SuperMANganese\n提供。与前一个版本比较，改进之处是可以容许数字重复，因此可能的情况会增多，猜测难度亦提高。"
     ],
     "dates": [
       "更新日期: 2014年8月22日"
@@ -127,7 +127,7 @@
   {
     "n": 7,
     "slug": "mastermind-3",
-    "title": "機妙算(MindMaster)遊戲III",
+    "title": "机妙算(MindMaster)游戏III",
     "en": "MindMaster III",
     "authors": [
       "SuperMANganese"
@@ -136,7 +136,7 @@
     "programs": 2,
     "bytes": 466,
     "credits": [
-      "程式由網友 SuperMANganese 提供。這個版可以選擇猜的數字可重複或不重複重。"
+      "程式由网友 SuperMANganese 提供。这个版可以选择猜的数字可重复或不重复重。"
     ],
     "dates": [
       "更新日期: 2014年8月22日"
@@ -147,7 +147,7 @@
   {
     "n": 8,
     "slug": "mastermind-4",
-    "title": "機妙算(MindMaster)遊戲IV",
+    "title": "机妙算(MindMaster)游戏IV",
     "en": "MindMaster IV",
     "authors": [
       "Mike"
@@ -156,10 +156,10 @@
     "programs": 1,
     "bytes": 156,
     "credits": [
-      "程式由網友 Mike\n提供。這個版本較簡短，並且容許猜的數字重複。"
+      "程式由网友 Mike\n提供。这个版本较简短，并且容许猜的数字重复。"
     ],
     "dates": [
-      "網友提供程式日期: 2009年12月7日"
+      "网友提供程式日期: 2009年12月7日"
     ],
     "references": [],
     "url": "http://webcal.freehostia.com/casio.fx-50FH/masterMind4.htm"
@@ -167,7 +167,7 @@
   {
     "n": 9,
     "slug": "mastermind-solution",
-    "title": "機妙算解答(MindMaster Solution)",
+    "title": "机妙算解答(MindMaster Solution)",
     "en": "MindMaster solution",
     "authors": [
       "SuperMANganese"
@@ -176,10 +176,10 @@
     "programs": 1,
     "bytes": 494,
     "credits": [
-      "程式由網友 SuperMANganese 提供。"
+      "程式由网友 SuperMANganese 提供。"
     ],
     "dates": [
-      "網友提供程式日期: 2009年7月24日"
+      "网友提供程式日期: 2009年7月24日"
     ],
     "references": [],
     "url": "http://webcal.freehostia.com/casio.fx-50FH/masterMind_solution.htm"
@@ -187,7 +187,7 @@
   {
     "n": 10,
     "slug": "slot-machine-1",
-    "title": "老虎機(I) (Slot machine I)",
+    "title": "老虎机(I) (Slot machine I)",
     "en": "Slot machine I",
     "authors": [
       "WebCal 站主"
@@ -205,7 +205,7 @@
   {
     "n": 11,
     "slug": "slot-machine-2",
-    "title": "老虎機II (Slot machine II)",
+    "title": "老虎机II (Slot machine II)",
     "en": "Slot machine II",
     "authors": [
       "望月",
@@ -216,7 +216,7 @@
     "programs": 1,
     "bytes": 149,
     "credits": [
-      "程式初版由網友望月編寫及最後版本由網友SuperMANganese及\nroviury修改。"
+      "程式初版由网友望月编写及最后版本由网友SuperMANganese及\nroviury修改。"
     ],
     "dates": [
       "程式更新日期: 2011年2月3日"
@@ -229,7 +229,7 @@
   {
     "n": 12,
     "slug": "last-number",
-    "title": "最後數值",
+    "title": "最后数值",
     "en": "Last number",
     "authors": [
       "WebCal 站主"
@@ -239,7 +239,7 @@
     "bytes": 64,
     "credits": [],
     "dates": [
-      "程式編寫日期: 2008年3月10日"
+      "程式编写日期: 2008年3月10日"
     ],
     "references": [],
     "url": "http://webcal.freehostia.com/casio.fx-50FH/lastNumber.htm"
@@ -265,7 +265,7 @@
   {
     "n": 14,
     "slug": "fighting-game-1",
-    "title": "對戰遊戲(I)",
+    "title": "对战游戏(I)",
     "en": "Fighting game I",
     "authors": [
       "wimwim"
@@ -276,12 +276,12 @@
     "programs": 4,
     "bytes": 2354,
     "credits": [
-      "程式由網友 wimwim 提供，網友 roviury\n提供簡化意見。",
-      "程式由網友 wimwim 提供。"
+      "程式由网友 wimwim 提供，网友 roviury\n提供简化意见。",
+      "程式由网友 wimwim 提供。"
     ],
     "dates": [
       "程式更新日期: 2011年6月18日",
-      "網友提供程式日期: 2009年6月12日"
+      "网友提供程式日期: 2009年6月12日"
     ],
     "references": [],
     "url": "http://webcal.freehostia.com/casio.fx-50FH/fighting.htm"
@@ -289,7 +289,7 @@
   {
     "n": 15,
     "slug": "fighting-game-2",
-    "title": "對戰遊戲(II)",
+    "title": "对战游戏(II)",
     "en": "Fighting game II",
     "authors": [
       "wimwim"
@@ -298,12 +298,12 @@
     "programs": 2,
     "bytes": 919,
     "credits": [
-      "程式由網友 wimwim 提供，網友 roviury\n提供簡化意見。…",
-      "程式由網友 wimwim 提供。"
+      "程式由网友 wimwim 提供，网友 roviury\n提供简化意见。…",
+      "程式由网友 wimwim 提供。"
     ],
     "dates": [
       "程式更新日期: 2012年12月25日",
-      "網友提供程式日期: 2009年6月18日"
+      "网友提供程式日期: 2009年6月18日"
     ],
     "references": [],
     "url": "http://webcal.freehostia.com/casio.fx-50FH/fighting2.htm"
@@ -311,7 +311,7 @@
   {
     "n": 16,
     "slug": "memory-game-1",
-    "title": "記憶遊戲",
+    "title": "记忆游戏",
     "en": "Memory game I",
     "authors": [
       "tonylcc1995"
@@ -320,7 +320,7 @@
     "programs": 2,
     "bytes": 157,
     "credits": [
-      "程式由網友\ntonylcc1995 提供。"
+      "程式由网友\ntonylcc1995 提供。"
     ],
     "dates": [
       "更新日期: 2011年2月3日"
@@ -331,7 +331,7 @@
   {
     "n": 17,
     "slug": "memory-game-2",
-    "title": "記憶遊戲",
+    "title": "记忆游戏",
     "en": "Memory game II",
     "authors": [
       "tonylcc1995"
@@ -343,8 +343,8 @@
     "programs": 2,
     "bytes": 212,
     "credits": [
-      "程式由網友\ntonylcc1995 提供，SuperMANganese提供防作弊版本的意見及方法。",
-      "網友 roviury 提供程式簡化意見。"
+      "程式由网友\ntonylcc1995 提供，SuperMANganese提供防作弊版本的意见及方法。",
+      "网友 roviury 提供程式简化意见。"
     ],
     "dates": [
       "程式更新日期: 2011年3月21日"
@@ -355,7 +355,7 @@
   {
     "n": 18,
     "slug": "memory-game-3",
-    "title": "記憶遊戲",
+    "title": "记忆游戏",
     "en": "Memory game III (7 game)",
     "authors": [
       "kith"
@@ -364,10 +364,10 @@
     "programs": 1,
     "bytes": 118,
     "credits": [
-      "程式由網友 kith\n提供。"
+      "程式由网友 kith\n提供。"
     ],
     "dates": [
-      "網友提供程式日期: 2009年11月13日"
+      "网友提供程式日期: 2009年11月13日"
     ],
     "references": [],
     "url": "http://webcal.freehostia.com/casio.fx-50FH/game7.htm"

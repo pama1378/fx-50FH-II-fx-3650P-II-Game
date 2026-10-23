@@ -1,5 +1,5 @@
 ---
-title: "記憶遊戲"
+title: "记忆游戏"
 english_title: "Memory game III (7 game)"
 slug: memory-game-3
 source: http://webcal.freehostia.com/casio.fx-50FH/game7.htm
@@ -9,13 +9,13 @@ platform: "CASIO fx-50FH / fx-50F PLUS / fx-3650P II"
 authors:
   - "kith"
 credits:
-  - "程式由網友 kith\n提供。"
+  - "程式由网友 kith\n提供。"
 dates:
-  - "網友提供程式日期: 2009年11月13日"
+  - "网友提供程式日期: 2009年11月13日"
 license: "see NOTICE.md — code unmodified, rights with original authors"
 ---
 
-# 記憶遊戲
+# 记忆游戏
 
 **Memory game III (7 game)** · 1 program(s) · [original page (game7.htm)](http://webcal.freehostia.com/casio.fx-50FH/game7.htm)
 
@@ -23,12 +23,12 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 
 **作者：** kith
 
-原頁署名原文：
+原页署名原文：
 
-> 程式由網友 kith
+> 程式由网友 kith
 提供。
 
-**網友提供程式日期: 2009年11月13日**
+**网友提供程式日期: 2009年11月13日**
 
 ## 程式 · 118 bytes
 
@@ -42,24 +42,24 @@ Else Norm 1: B => A◢ B=0 =>
 0◢ IfEnd: Next
 ```
 
-## 玩法與說明（原文）
+## 玩法与说明（原文）
 
-拍7遊戲
+拍7游戏
 
-程式由網友 kith
+程式由网友 kith
 提供。
 
-網友提供程式日期: 2009年11月13日
+网友提供程式日期: 2009年11月13日
 
-遊戲玩法：
-由1開始數，玩家和計算機輪流報數。凡數字含有7或是7的倍數，便輸入0。
+游戏玩法：
+由1开始数，玩家和计算机轮流报数。凡数字含有7或是7的倍数，便输入0。
 例如:
 
-先輸入1 EXE (顯示2) 3 EXE (顯示4) 5 EXE (顯示6) EXE 或0 EXE (顯示8) ......
-到7000時會結束遊戲
+先输入1 EXE (显示2) 3 EXE (显示4) 5 EXE (显示6) EXE 或0 EXE (显示8) ......
+到7000时会结束游戏
 
-註: 若想隨機報數，則可將 If A-2Rnd(A÷2 改成 If .5>Ran#
+注: 若想随机报数，则可将 If A-2Rnd(A÷2 改成 If .5>Ran#
 
 ---
 
-*源碼未經改動，原樣轉錄。見 [NOTICE](../NOTICE.md)。*
+*源码未经改动，原样转录。见 [NOTICE](../NOTICE.md)。*

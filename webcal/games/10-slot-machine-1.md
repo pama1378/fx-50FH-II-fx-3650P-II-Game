@@ -1,5 +1,5 @@
 ---
-title: "老虎機(I) (Slot machine I)"
+title: "老虎机(I) (Slot machine I)"
 english_title: "Slot machine I"
 slug: slot-machine-1
 source: http://webcal.freehostia.com/casio.fx-50FH/slotMachine.htm
@@ -13,7 +13,7 @@ dates:
 license: "see NOTICE.md — code unmodified, rights with original authors"
 ---
 
-# 老虎機(I) (Slot machine I)
+# 老虎机(I) (Slot machine I)
 
 **Slot machine I** · 1 program(s) · [original page (slotMachine.htm)](http://webcal.freehostia.com/casio.fx-50FH/slotMachine.htm)
 
@@ -34,35 +34,35 @@ ABC=73
 M◢ WhileEnd
 ```
 
-## 玩法與說明（原文）
+## 玩法与说明（原文）
 
 更新日期: 2011年2月3日
 
-註1: 開始時的現金總值為0，顯示現金餘額時第一行會顯示M字，第二行的數值為金額。
+注1: 开始时的现金总值为0，显示现金余额时第一行会显示M字，第二行的数值为金额。
 
-註2:
-若果拉出三個不同數值，金額減$1，若有果其中兩個數值相同，金額加$2，若果拉中三個相同數值(非777)，金額加$8，若果拉中777，金額加$100。
+注2:
+若果拉出三个不同数值，金额减$1，若有果其中两个数值相同，金额加$2，若果拉中三个相同数值(非777)，金额加$8，若果拉中777，金额加$100。
 
 操作方法:
 
-按 Prog 1 (顯示第一個拉出的數值)
+按 Prog 1 (显示第一个拉出的数值)
 
-EXE (顯示第二個拉出的數值)
+EXE (显示第二个拉出的数值)
 
-EXE (顯示第三個拉出的數值)
+EXE (显示第三个拉出的数值)
 
-EXE (第一行有M字出現，顯示現在金額)
+EXE (第一行有M字出现，显示现在金额)
 
-EXE (顯示另一次第一個拉出的數值)
+EXE (显示另一次第一个拉出的数值)
 
-EXE (顯示另一次第二個拉出的數值)
+EXE (显示另一次第二个拉出的数值)
 
-EXE (顯示另一次第三個拉出的數值)
+EXE (显示另一次第三个拉出的数值)
 
-EXE (第一行有M字出現，顯示現在金額)
+EXE (第一行有M字出现，显示现在金额)
 
 ........................
 
 ---
 
-*源碼未經改動，原樣轉錄。見 [NOTICE](../NOTICE.md)。*
+*源码未经改动，原样转录。见 [NOTICE](../NOTICE.md)。*

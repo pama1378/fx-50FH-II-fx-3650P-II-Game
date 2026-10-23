@@ -1,5 +1,5 @@
 ---
-title: "對戰遊戲(I)"
+title: "对战游戏(I)"
 english_title: "Fighting game I"
 slug: fighting-game-1
 source: http://webcal.freehostia.com/casio.fx-50FH/fighting.htm
@@ -11,15 +11,15 @@ authors:
 referenced:
   - "roviury"
 credits:
-  - "程式由網友 wimwim 提供，網友 roviury\n提供簡化意見。"
-  - "程式由網友 wimwim 提供。"
+  - "程式由网友 wimwim 提供，网友 roviury\n提供简化意见。"
+  - "程式由网友 wimwim 提供。"
 dates:
   - "程式更新日期: 2011年6月18日"
-  - "網友提供程式日期: 2009年6月12日"
+  - "网友提供程式日期: 2009年6月12日"
 license: "see NOTICE.md — code unmodified, rights with original authors"
 ---
 
-# 對戰遊戲(I)
+# 对战游戏(I)
 
 **Fighting game I** · 4 program(s) · [original page (fighting.htm)](http://webcal.freehostia.com/casio.fx-50FH/fighting.htm)
 
@@ -27,18 +27,18 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 
 **作者：** wimwim
 
-*roviury 提供簡化意見*
+*roviury 提供简化意见*
 
-原頁署名原文：
+原页署名原文：
 
-> 程式由網友 wimwim 提供，網友 roviury
-提供簡化意見。
+> 程式由网友 wimwim 提供，网友 roviury
+提供简化意见。
 
-> 程式由網友 wimwim 提供。
+> 程式由网友 wimwim 提供。
 
-**程式更新日期: 2011年6月18日 / 網友提供程式日期: 2009年6月12日**
+**程式更新日期: 2011年6月18日 / 网友提供程式日期: 2009年6月12日**
 
-## 第一個程式 · 515 bytes
+## 第一个程式 · 515 bytes
 
 ```
 E2→C: Fix3: E3→Y: 2C→M: Y+M÷E3◢ Y→D: M→X: D+X÷E3◢
@@ -65,7 +65,7 @@ D>E3 => E3→D: D<0 => 0→D:Y<0 => 0→Y:Y+M÷E3◢
 D+X÷E3◢ DY => Goto 0: D => BAD◢ Y=>GD◢ Norm 1
 ```
 
-## 第二個程式 · 635 bytes
+## 第二个程式 · 635 bytes
 
 ```
 E2→C: Fix3: E3→Y: 2C→M: Y+M÷E3◢ Y→D: M→X: D+X÷E3◢ Lbl 0:
@@ -101,7 +101,7 @@ A=2 => 5CM- => B-4 => D-5C→D: A=2 => B=3 => C+D→D:
 A=4 => 3CM-: A=5 => 2CM- => C+Y→Y:
 ```
 
-## 第一個程式 · 542 bytes
+## 第一个程式 · 542 bytes
 
 ```
 E2→C: Fix3: E3→Y: 2C→M: Y+M÷E3◢ Y→D: M→X: D+X÷E3◢
@@ -128,7 +128,7 @@ D>E3 => E3→D: D<0 => 0→D:Y<0 => 0→Y:Y+M÷E3◢
 D+X÷E3◢ DY => Goto 0: D => BAD◢ Y=>GD◢ Norm 1
 ```
 
-## 第二個程式 · 662 bytes
+## 第二个程式 · 662 bytes
 
 ```
 E2→C: Fix3: E3→Y: 2C→M: Y+M÷E3◢ Y→D: M→X: D+X÷E3◢ Lbl 0:
@@ -158,56 +158,56 @@ D<0 => 0→D: Y<0 => 0→Y: Y+M÷E3◢ D+X÷E3◢ DY => Goto 0: D => BAD◢
 Y => GD◢ Norm 1
 ```
 
-## 玩法與說明（原文）
+## 玩法与说明（原文）
 
-程式由網友 wimwim 提供，網友 roviury
-提供簡化意見。
+程式由网友 wimwim 提供，网友 roviury
+提供简化意见。
 
-遊戲是玩家與電腦進行對戰，第二個程式較長(改進版)，電腦的實力亦較強。
+游戏是玩家与电脑进行对战，第二个程式较长(改进版)，电脑的实力亦较强。
 
 程式更新日期: 2011年6月18日
 
 注意: E 是按 EXP 。
 
-註1: 出招方式輸入1-6整數
-1: 標準攻擊 (對方HP減70, 但己方MP減少 80)
-2: 必殺技 (對方HP減500, 但己方MP減少500)
-3: 防禦 (減少己方HP損失20%)
-4: 100%防禦 (己方HP不會有任何損失, 但己方MP減少300)
-5: 恢復HP (己方HP恢復100, 但己方MP減少200)
-6: 恢復MP (己方MP恢復50)
+注1: 出招方式输入1-6整数
+1: 标准攻击 (对方HP减70, 但己方MP减少 80)
+2: 必杀技 (对方HP减500, 但己方MP减少500)
+3: 防御 (减少己方HP损失20%)
+4: 100%防御 (己方HP不会有任何损失, 但己方MP减少300)
+5: 恢复HP (己方HP恢复100, 但己方MP减少200)
+6: 恢复MP (己方MP恢复50)
 
-註2: 每個回合 MP數值會自動增加100
+注2: 每个回合 MP数值会自动增加100
 
-註3: 當電腦的HP數值減少至0，而已方的HP大於0則獲勝(顯示GD)。當己方的HP數值減少至0，而電腦的HP大於0則戰敗(顯示BAD)。當電腦及己方的HP數值同時減少至0則表示打成平手，這時不會顯示GD或BAD，程式會直接終止(顯示Norm
+注3: 当电脑的HP数值减少至0，而已方的HP大于0则获胜(显示GD)。当己方的HP数值减少至0，而电脑的HP大于0则战败(显示BAD)。当电脑及己方的HP数值同时减少至0则表示打成平手，这时不会显示GD或BAD，程式会直接终止(显示Norm
 1)。
 
-操作示範:
+操作示范:
 
-按 Prog 1 (顯示1000.200，即玩家的HP為1000及MP為200)
+按 Prog 1 (显示1000.200，即玩家的HP为1000及MP为200)
 
-EXE (顯示1000.200，即電腦的HP為1000及MP為200)
+EXE (显示1000.200，即电脑的HP为1000及MP为200)
 
-EXE (顯示A?表示輸入出招選擇(1-6的整數)，若果選用1)
+EXE (显示A?表示输入出招选择(1-6的整数)，若果选用1)
 
-1 EXE (顯示B表示電腦出招的選擇(1-6))
+1 EXE (显示B表示电脑出招的选择(1-6))
 
-EXE (顯示己方的HP及MP)
+EXE (显示己方的HP及MP)
 
-EXE (顯示電腦的HP及MP)
+EXE (显示电脑的HP及MP)
 
-.....繼續遊戲...
+.....继续游戏...
 
-若果出現GD表示獲勝，若果出現BAD表示戰敗，若果沒有出現GD或BAD，而出現程式直接終止(顯示Norm 1)表示打成平手。
+若果出现GD表示获胜，若果出现BAD表示战败，若果没有出现GD或BAD，而出现程式直接终止(显示Norm 1)表示打成平手。
 
-程式舊版
+程式旧版
 
-程式由網友 wimwim 提供。
+程式由网友 wimwim 提供。
 
-網友提供程式日期: 2009年6月12日
+网友提供程式日期: 2009年6月12日
 
 注意: E 是按 EXP 。
 
 ---
 
-*源碼未經改動，原樣轉錄。見 [NOTICE](../NOTICE.md)。*
+*源码未经改动，原样转录。见 [NOTICE](../NOTICE.md)。*

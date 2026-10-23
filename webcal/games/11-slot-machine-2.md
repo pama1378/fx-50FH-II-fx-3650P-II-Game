@@ -1,5 +1,5 @@
 ---
-title: "老虎機II (Slot machine II)"
+title: "老虎机II (Slot machine II)"
 english_title: "Slot machine II"
 slug: slot-machine-2
 source: http://webcal.freehostia.com/casio.fx-50FH/slotMachine2.htm
@@ -11,7 +11,7 @@ authors:
   - "SuperMANganese"
   - "roviury"
 credits:
-  - "程式初版由網友望月編寫及最後版本由網友SuperMANganese及\nroviury修改。"
+  - "程式初版由网友望月编写及最后版本由网友SuperMANganese及\nroviury修改。"
 references:
   - http://webcal.forumcircle.com/viewtopic.php?t=1340
 dates:
@@ -19,7 +19,7 @@ dates:
 license: "see NOTICE.md — code unmodified, rights with original authors"
 ---
 
-# 老虎機II (Slot machine II)
+# 老虎机II (Slot machine II)
 
 **Slot machine II** · 1 program(s) · [original page (slotMachine2.htm)](http://webcal.freehostia.com/casio.fx-50FH/slotMachine2.htm)
 
@@ -27,14 +27,14 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 
 **作者：** 望月、SuperMANganese、roviury
 
-*初版由望月編寫，最後版本由 SuperMANganese 及 roviury 修改*
+*初版由望月编写，最后版本由 SuperMANganese 及 roviury 修改*
 
-原頁署名原文：
+原页署名原文：
 
-> 程式初版由網友望月編寫及最後版本由網友SuperMANganese及
+> 程式初版由网友望月编写及最后版本由网友SuperMANganese及
 roviury修改。
 
-原始討論：<http://webcal.forumcircle.com/viewtopic.php?t=1340>
+原始讨论：<http://webcal.forumcircle.com/viewtopic.php?t=1340>
 
 **程式更新日期: 2011年2月3日**
 
@@ -56,54 +56,54 @@ ABC=1 => 13XM+: ABC=73
 M-D◢ M◢ Goto 0
 ```
 
-## 玩法與說明（原文）
+## 玩法与说明（原文）
 
 程式更新日期: 2011年2月3日
 
-程式初版由網友望月編寫及最後版本由網友SuperMANganese及
+程式初版由网友望月编写及最后版本由网友SuperMANganese及
 roviury修改。
 
 注意: E是按 EXP 。
 
 操作方法:
 
-按 Prog 1 (先顯示本金 $100) EXE
+按 Prog 1 (先显示本金 $100) EXE
 
-1 EXE (輸入投注金額(註1))
+1 EXE (输入投注金额(注1))
 
-EXE (顯示第一個拉出的數值(A值))
+EXE (显示第一个拉出的数值(A值))
 
-EXE (顯示第二個拉出的數值(B值))
+EXE (显示第二个拉出的数值(B值))
 
-EXE (顯示第三個拉出的數值(C值))
+EXE (显示第三个拉出的数值(C值))
 
-EXE (顯示該次的盈利或虧損)
+EXE (显示该次的盈利或亏损)
 
-EXE (顯示最後的本金)
+EXE (显示最后的本金)
 
-程式會重複上述藍色的步驟，但本金為0時會顯示Math ERROR。
+程式会重复上述蓝色的步骤，但本金为0时会显示Math ERROR。
 
-註1: 投注金額必須為整數，否則要重新輸入投注金額。投注金額最高限制為現時本金的五分之一，但本金小於$5時，則沒有五分之一的限制，但仍須輸入整數。
+注1: 投注金额必须为整数，否则要重新输入投注金额。投注金额最高限制为现时本金的五分之一，但本金小于$5时，则没有五分之一的限制，但仍须输入整数。
 
-註2: 賠率的計算方法如下: (有重覆者，以較大賠率為準)
-有兩個數字一樣 + 5倍
+注2: 赔率的计算方法如下: (有重覆者，以较大赔率为准)
+有两个数字一样 + 5倍
 
-三個數中有0的話 + 2倍
+三个数中有0的话 + 2倍
 
-三個數為連續數 (例: 2,3,4 或 8,7,6 ,而不是 3,5,7 或 4,5,3) + 5倍
+三个数为连续数 (例: 2,3,4 或 8,7,6 ,而不是 3,5,7 或 4,5,3) + 5倍
 
-三個數中有0的話 及 三個數為連續數 +8倍
+三个数中有0的话 及 三个数为连续数 +8倍
 
-有兩個數字一樣 及 三個數中有0的話 + 8倍
+有两个数字一样 及 三个数中有0的话 + 8倍
 
-有三個數字一樣 + 17倍
+有三个数字一样 + 17倍
 
-三個零 + 19倍
+三个零 + 19倍
 
-三個一 + 30倍
+三个一 + 30倍
 
-三個七 + 100倍
+三个七 + 100倍
 
 ---
 
-*源碼未經改動，原樣轉錄。見 [NOTICE](../NOTICE.md)。*
+*源码未经改动，原样转录。见 [NOTICE](../NOTICE.md)。*

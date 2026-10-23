@@ -1,5 +1,5 @@
 ---
-title: "機妙算(MindMaster)遊戲"
+title: "机妙算(MindMaster)游戏"
 english_title: "MindMaster I"
 slug: mastermind-1
 source: http://webcal.freehostia.com/casio.fx-50FH/masterMind.htm
@@ -9,11 +9,11 @@ platform: "CASIO fx-50FH / fx-50F PLUS / fx-3650P II"
 authors:
   - "WebCal 站主"
 dates:
-  - "程式編寫日期: 2007年9月17日"
+  - "程式编写日期: 2007年9月17日"
 license: "see NOTICE.md — code unmodified, rights with original authors"
 ---
 
-# 機妙算(MindMaster)遊戲
+# 机妙算(MindMaster)游戏
 
 **MindMaster I** · 2 program(s) · [original page (masterMind.htm)](http://webcal.freehostia.com/casio.fx-50FH/masterMind.htm)
 
@@ -21,9 +21,9 @@ license: "see NOTICE.md — code unmodified, rights with original authors"
 
 **作者：** WebCal 站主
 
-**程式編寫日期: 2007年9月17日**
+**程式编写日期: 2007年9月17日**
 
-## 第一個程式 · 154 bytes
+## 第一个程式 · 154 bytes
 
 ```
 ClrMemory: Fix 0: Lbl 0: Rnd( 9Ran#→A:
@@ -37,7 +37,7 @@ X - 4 => Goto 1: 0→X: MM-◢
 Ans - 40 => Goto 1: π
 ```
 
-## 第二個程式 · 166 bytes
+## 第二个程式 · 166 bytes
 
 ```
 ClrStat: Fix 0: Lbl 0: Rnd( 9Ran#→A:
@@ -52,23 +52,23 @@ Y◢ Ans - 40 => Goto 2:
 Σx
 ```
 
-## 玩法與說明（原文）
+## 玩法与说明（原文）
 
-機妙算(MindMaster)遊戲 I
+机妙算(MindMaster)游戏 I
 
-程式編寫日期: 2007年9月17日
+程式编写日期: 2007年9月17日
 
-程式需要在 SD 模式下執行，因此在選擇新程式位置後，按 4 選用SD模式。
+程式需要在 SD 模式下执行，因此在选择新程式位置后，按 4 选用SD模式。
 
-注意: 藍色的英文字為統計模式中的變數(Σx 按 shift 1 2 )
+注意: 蓝色的英文字为统计模式中的变数(Σx 按 shift 1 2 )
 
 按 Prog 1 再按 1 EXE 2 EXE 3 EXE 4 EXE (1, 2, 3,
-4為猜測的數值，這時會顯示一個提示數值，十位的數值代表位置及數值正確，個位數值代表數值正確但位置錯誤)
+4为猜测的数值，这时会显示一个提示数值，十位的数值代表位置及数值正确，个位数值代表数值正确但位置错误)
 
-再輸入其它猜測數值，直至猜中四個數值為止，若果是第一個程式，最後會顯示π值。若果是第二個程式，最後會顯示猜測的總次數。
+再输入其它猜测数值，直至猜中四个数值为止，若果是第一个程式，最后会显示π值。若果是第二个程式，最后会显示猜测的总次数。
 
-若果使用第二個程式，遊戲完結後，請按Mode 1返回正常模式。
+若果使用第二个程式，游戏完结后，请按Mode 1返回正常模式。
 
 ---
 
-*源碼未經改動，原樣轉錄。見 [NOTICE](../NOTICE.md)。*
+*源码未经改动，原样转录。见 [NOTICE](../NOTICE.md)。*
