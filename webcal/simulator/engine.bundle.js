@@ -205,10 +205,31 @@ class Calc {
     this.vars = {A:0,B:0,C:0,D:0,E:0,F:0,X:0,Y:0,M:0,Z:0,'α':0};
     this.ans = 0;
     this.mode = { fix:null, sci:null, norm:2, angle:'Deg' };
-    this.stat = { n:0, sx:0, sy:0, sxx:0, syy:0, sxy:0, freqOn:false, data:[] };
+    this.stat = { freqOn:false, data:[], regMode:'Lin' };
     this.progs = ['', '', '', ''];
     this.history = [];
   }
+  // ---- 統計
+  addData(x, y, f){
+    this.stat.data.push({x, y:(y==null?0:y), f:(f==null?1:f)});
+  }
+  statSums(){
+    let n=0,sx=0,sy=0,sxx=0,syy=0,sxy=0;
+    for(const d of this.stat.data){
+      const f=d.f; n+=f; sx+=d.x*f; sy+=d.y*f;
+      sxx+=d.x*d.x*f; syy+=d.y*d.y*f; sxy+=d.x*d.y*f;
+    }
+    return {n,sx,sy,sxx,syy,sxy};
+  }
+  regression(){
+    const S=this.statSums();
+    const den=S.n*S.sxx-S.sx*S.sx;
+    if(den===0) throw new Error(ERR.Math);
+    const b=(S.n*S.sxy-S.sx*S.sy)/den;
+    const a=(S.sy-b*S.sx)/S.n;
+    return {a,b,r:0};
+  }
+
   // ---- 角度换算
   toRad(v){
     if(this.mode.angle==='Rad') return v;
@@ -226,14 +247,13 @@ class Calc {
     if(name==='π') return Math.PI;
     if(name in this.vars) return this.vars[name];
     const st=this.stat;
-    switch(name){
-      case 'n': return st.n;
-      case 'Σx': return st.sx;
-      case 'Σy': return st.sy;
-      case 'Σx²': return st.sxx;
-      case 'Σy²': return st.syy;
-      case 'Σxy': return st.sxy;
+    if(['n','Σx','Σy','Σx²','Σy²','Σxy','x̄','ȳ'].includes(name)){
+      const S=this.statSums();
+      return name==='n'?S.n : name==='Σx'?S.sx : name==='Σy'?S.sy
+           : name==='Σx²'?S.sxx : name==='Σy²'?S.syy : name==='Σxy'?S.sxy
+           : name==='x̄'?S.sx/S.n : S.sy/S.n;
     }
+    if(name==='A'||name==='B'){ const r=this.regression(); return name==='A'?r.a:r.b; }
     throw new Error(ERR.Syntax);
   }
   setVar(name, v){
@@ -328,9 +348,20 @@ class Calc {
   tan(x){ const c=this.cos(x); return Math.abs(c)<1e-12?NaN:this.sin(x)/c; }
 
   /* ---------- 显示格式 ---------- */
-  format(v){
+  formatDMS(v){
+    const neg=v<0, a=Math.abs(v);
+    let d=Math.floor(a), rem=(a-d)*60, m=Math.floor(rem), sec=(rem-m)*60;
+    sec=Math.round(sec*100)/100;
+    if(sec>=60){sec-=60;m+=1;} if(m>=60){m-=60;d+=1;}
+    const pad=n=>String(n).padStart(2,'0');
+    let secStr = sec===0 ? '00'
+      : (sec < 10 ? '0' : '') + String(Math.round(sec*100)/100).replace(/\.0+$/,'').replace(/(\.\d)0$/,'$1');
+    return (neg?'-':'')+d+'°'+pad(m)+"'"+secStr+'"';
+  }
+  format(v, dms){
     if(typeof v!=='number'||isNaN(v)) return 'ERROR';
     if(!isFinite(v)) return 'Math ERROR';
+    if(dms) return this.formatDMS(v);
     const m=this.mode;
     if(m.fix!=null) return roundFixed(v, m.fix);
     if(m.sci!=null) return v.toExponential(m.sci).replace('e','ᴇ');
@@ -431,7 +462,42 @@ class Program {
     return calc.evalNode(p.parseExpr(0));
   }
   /* 执行一条语句的 token 序列；返回 flow 对象或 null */
+  *execDT(calc, t){
+    // 形式：[x] [, y] [; freq] DT
+    const di=t.findIndex(x=>x.v==='DT');
+    const pre=t.slice(0,di);
+    const semi=topIdx(pre,';');
+    const main=semi>=0?pre.slice(0,semi):pre;
+    const freq=semi>=0?this.evalT(calc,pre.slice(semi+1)):1;
+    const comma=topIdx(main,',');
+    if(comma>=0){
+      const xp=main.slice(0,comma), yp=main.slice(comma+1);
+      const x=xp.length?this.evalT(calc,xp):calc.ans;
+      const y=yp.length?this.evalT(calc,yp):0;
+      calc.addData(x,y,freq); calc.ans=x;
+    } else {
+      const x=main.length?this.evalT(calc,main):calc.ans;   // 空表示沿用 Ans
+      calc.addData(x,0,freq); calc.ans=x;
+    }
+  }
   *exec(calc, t){
+    const f0=t[0]&&t[0].v;
+    // 原頁常把 Else/Then 與後續代碼寫在同一語句，甚至混在表達式裡
+    const kSE=t.findIndex(x=>x.v==='Else'||x.v==='Then');
+    if(kSE>0){
+      yield* this.exec(calc,t.slice(0,kSE));
+      return t.length>kSE+1 ? yield* this.exec(calc,t.slice(kSE+1)) : null;
+    }
+    if(f0==='Else'||f0==='Then'){
+      return t.length>1 ? yield* this.exec(calc,t.slice(1)) : null;
+    }
+    const lastT=t[t.length-1];
+    if(lastT && (lastT.v==='M+'||lastT.v==='M-') && t.length>1){
+      const v=this.evalT(calc,t.slice(0,-1));
+      calc.vars.M += (lastT.v==='M+'? v : -v);
+      calc.ans=v;
+      return null;
+    }
     const a=topIdx(t,'=>');
     if(a>=0){
       if(this.evalT(calc,t.slice(0,a))===0) return null;
@@ -458,15 +524,18 @@ class Program {
   *run(calc){
     const L=this.list,M=this.match;
     let pc=0, guard=0;
+    let lastWasExpr=false;
     const loops=[];  // {kind, start, varName, to, step}
     while(pc<L.length){
       if(++guard>2000000) throw new Error(ERR.Stack);
       const st=L[pc];
-      if(st.kind==='disp'){ yield {type:'out', value:calc.format(calc.ans)}; pc++; continue; }
+      if(st.kind==='disp'){ lastWasExpr=false; yield {type:'out', value:calc.format(calc.ans, calc._dms)}; pc++; continue; }
       const t=st.t, f=first(st);
+      if(t.some(x=>x.v==='DT')){ yield* this.execDT(calc,t); pc++; continue; }
       switch(f){
         case 'ClrMemory': calc.vars={A:0,B:0,C:0,D:0,E:0,F:0,X:0,Y:0,M:0,Z:0}; calc.ans=0; pc++; continue;
-        case 'ClrStat': case 'Clrstat': calc.stat={n:0,sx:0,sy:0,sxx:0,syy:0,sxy:0,freqOn:calc.stat.freqOn,data:[]}; pc++; continue;
+        case 'ClrStat': case 'Clrstat': calc.stat={freqOn:calc.stat.freqOn,data:[],regMode:calc.stat.regMode}; pc++; continue;
+        case 'DT': { yield* this.execDT(calc,t); pc++; continue; }
         case 'Fix': calc.mode.fix=t[1]?Number(t[1].v):0; pc++; continue;
         case 'Sci': calc.mode.sci=t[1]?Number(t[1].v):0; pc++; continue;
         case 'Norm': calc.mode.norm=t[1]?Number(t[1].v):2; pc++; continue;
@@ -530,7 +599,12 @@ class Program {
             if(cond) pc+=2;                       // 进入 Then 之后的语句
             else {
               const j=M[pc+1];
-              pc=(j!=null?j:pc+1)+1;              // 跳到 Else 之后或 IfEnd 之后
+              if(j!=null && first(L[j])==='Else'){
+                // Else 可能与后续代码写在同一语句内（原页常见）
+                const st2=L[j];
+                if(st2.t.length>1) yield* this.exec(calc, st2.t.slice(1));
+                pc=j+1;
+              } else pc=(j!=null?j:pc+1)+1;
             }
           } else {
             pc += cond?1:2;                        // 单行 If：跳过下一条语句
@@ -539,6 +613,7 @@ class Program {
         }
         case 'Then': pc++; continue;
         case 'Else': {
+          // 条件为真时走到这里：跳过 else 分支
           const j=M[pc];
           pc=(j!=null?j:pc)+1;
           continue;
@@ -556,6 +631,8 @@ class Program {
         pc++; continue;
       }
       // 普通语句（可能含 => / 赋值）
+      lastWasExpr = topIdx(t,'→')<0 && topIdx(t,'=>')<0;
+      calc._dms = t.length>0 && t[t.length-1].v==='°';
       const r=yield* this.exec(calc,t);
       if(r){
         if(r.goto!=null){ pc=this.labels[r.goto]; continue; }
@@ -564,6 +641,8 @@ class Program {
       }
       pc++;
     }
+    // 程序自然结束：若最后是表达式，结果留在屏幕上（真机行为）
+    if(lastWasExpr) yield {type:'out', value:calc.format(calc.ans, calc._dms)};
   }
 }
 
