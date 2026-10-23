@@ -395,22 +395,21 @@ function factorial(n){
 
 function splitStatements(tokens){
   const out=[]; let cur=[]; let depth=0;
+  const flush=()=>{ if(cur.length){ out.push({kind:'stmt',t:cur}); cur=[]; } };
   for(const t of tokens){
-    if(t.v==='(') depth++;
-    else if(t.v===')') depth--;
-    // Else / Then 本身是语句：前面若有内容先断开
+    if(t.v==='(' || (t.k==='fn' && t.v.endsWith('('))) depth++;
+    else if(t.v===')'){ if(depth>0) depth--; }
     if(depth<=0 && (t.v==='Else'||t.v==='Then') && cur.length){
-      out.push({kind:'stmt',t:cur}); cur=[];
-      cur.push(t); continue;
+      flush(); cur.push(t); continue;
     }
     if(depth<=0 && (t.v===':'||t.v==='◢')){
-      if(cur.length){ out.push({kind:'stmt',t:cur}); cur=[]; }
+      flush();
       if(t.v==='◢') out.push({kind:'disp'});
       continue;
     }
     cur.push(t);
   }
-  if(cur.length) out.push({kind:'stmt',t:cur});
+  flush();
   return out;
 }
 const first = st => st.kind==='stmt'&&st.t.length ? st.t[0].v : null;
@@ -443,7 +442,7 @@ function pop(stack,op){
 function topIdx(t,ch){
   let d=0;
   for(let i=0;i<t.length;i++){
-    if(t[i].v==='(') d++;
+    if(t[i].v==='(' || (t[i].k==='fn' && t[i].v.endsWith('('))) d++;
     else if(t[i].v===')') d--;
     else if(d===0 && t[i].v===ch) return i;
   }
@@ -464,7 +463,7 @@ class Program {
   evalT(calc,t){
     // 原頁偶把 Else/Then 與同一行代碼併在一起，這裡先剝掉前導命令
     while(t && t.length && (t[0].v==='Else'||t[0].v==='Then')) t=t.slice(1);
-    if(!t||!t.length) throw new Error(ERR.Syntax);
+    if(!t||!t.length) return 0;   // 空表達式（原頁排版造成的空句）按 0 處理，不中斷程式
     const p=new Parser(t);
     return calc.evalNode(p.parseExpr(0));
   }
@@ -535,9 +534,11 @@ class Program {
     let pc=0, guard=0;
     let lastWasExpr=false;
     const loops=[];  // {kind, start, varName, to, step}
+    let curSt=null;
+    try{
     while(pc<L.length){
       if(++guard>2000000) throw new Error(ERR.Stack);
-      const st=L[pc];
+      const st=L[pc]; curSt=st;
       if(st.kind==='disp'){ lastWasExpr=false; yield {type:'out', value:calc.format(calc.ans, calc._dms)}; pc++; continue; }
       const t=st.t, f=first(st);
       if(t.some(x=>x.v==='DT')){ yield* this.execDT(calc,t); pc++; continue; }
@@ -554,20 +555,20 @@ class Program {
         case 'FreqOn': calc.stat.freqOn=true; pc++; continue;
         case 'FreqOff': calc.stat.freqOn=false; pc++; continue;
         case 'Lbl': pc++; continue;
-        case 'Goto': { const r=yield* this.exec(calc,t); if(r&&r.goto!=null){ pc=this.labels[r.goto]; continue; } pc++; continue; }
+        case 'Goto': { const r=yield* this.exec(calc,t); if(r&&r.goto!=null){ loops.length=0; pc=this.labels[r.goto]; continue; } pc++; continue; }
         case 'While': {
           if(this.evalT(calc,t.slice(1))===0){ pc=(M[pc]!=null?M[pc]:pc)+1; continue; }
           loops.push({kind:'while',start:pc}); pc++; continue;
         }
         case 'WhileEnd': {
           const lp=loops[loops.length-1];
-          if(!lp||lp.kind!=='while') throw new Error(ERR.Syntax);
+          if(!lp||lp.kind!=='while'){ pc++; continue; }   // 被 Goto 越過時容錯
           pc=lp.start; continue;
         }
         case 'Do': loops.push({kind:'do',start:pc}); pc++; continue;
         case 'LpWhile': {
           const lp=loops[loops.length-1];
-          if(!lp||lp.kind!=='do') throw new Error(ERR.Syntax);
+          if(!lp||lp.kind!=='do'){ pc++; continue; }
           if(this.evalT(calc,t.slice(1))!==0) pc=lp.start;
           else { loops.pop(); pc++; }
           continue;
@@ -595,7 +596,7 @@ class Program {
         }
         case 'Next': {
           const lp=loops[loops.length-1];
-          if(!lp||lp.kind!=='for') throw new Error(ERR.Syntax);
+          if(!lp||lp.kind!=='for'){ pc++; continue; }     // 被 Goto 越過時容錯
           const v=calc.getVar(lp.varName)+lp.step;
           calc.setVar(lp.varName,v);
           if(lp.step>0?v>lp.to:v<lp.to){ loops.pop(); pc++; } else pc=lp.start+1;
@@ -649,6 +650,11 @@ class Program {
         if(r.return) return;
       }
       pc++;
+    }
+    }catch(e){
+      const txt = curSt && curSt.t ? curSt.t.map(x=>x.v).join(' ') : (curSt? curSt.kind : '?');
+      e.message += '  @「'+txt.slice(0,60)+'」';
+      throw e;
     }
     // 程序自然结束：若最后是表达式，结果留在屏幕上（真机行为）
     if(lastWasExpr) yield {type:'out', value:calc.format(calc.ans, calc._dms)};
