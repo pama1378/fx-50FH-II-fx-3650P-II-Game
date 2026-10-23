@@ -2,6 +2,18 @@
 
 ---
 
+## 🖩 网页模拟器（`simulator/`）
+
+**在浏览器里直接运行这些程序：** [打开模拟器](simulator/index.html) · [引擎自检](simulator/selftest.html)
+
+CASIO fx-50F PLUS / fx-50FH 模拟器：2 行 LCD、虚拟键盘、COMP / SD / REG / PRGM 四种模式、程序编辑与实时字节计数、六十进数输出。16 条程序可编译，15 条行为正确。
+
+| 想做什么 | 打开 |
+|---|---|
+| 直接玩 | [`simulator/index.html`](simulator/index.html) |
+| 验证引擎没问题 | [`simulator/selftest.html`](simulator/selftest.html) |
+| 看已知数据问题 | [`simulator/KNOWN_ISSUES.md`](simulator/KNOWN_ISSUES.md) |
+
 ## WebCal 游戏合集（`webcal/`）
 
 收录 [WebCal](http://webcal.freehostia.com/casio.fx-50FH/fx50FPlus.htm) 网站 CASIO fx-50FH 程式集的游戏章节：18 个条目、6315 bytes、9 位署名作者，程式码原样转录未经改动。

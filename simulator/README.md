@@ -1,6 +1,6 @@
 # CASIO fx-50F PLUS / fx-50FH 网页模拟器
 
-在浏览器里运行 CASIO fx-50F PLUS，可直接载入并执行 `../games/` 里的游戏程序。
+在浏览器里运行 CASIO fx-50F PLUS，可载入并执行本仓库 `webcal/games/` 里的游戏程序（程序数据已内嵌于 `programs.js`）。
 
 ## 打开方式
 
@@ -12,7 +12,7 @@ python3 -m http.server 8000
 # 浏览器打开 http://localhost:8000/
 ```
 
-需与 `../games/` 保持相对位置，**不要把 `simulator/` 单独拷走**。
+本目录自包含，无外部依赖。
 
 ## 四种模式
 
@@ -100,7 +100,7 @@ python3 -m http.server 8000
 | 文件 | 作用 |
 |---|---|
 | `engine.bundle.js` | 引擎：词法、解析、求值、程序执行（由 `core.js`/`engine.js`/`prog.js` 打包） |
-| `programs.js` | 从 `../games/*.md` 提取的程序数据 |
+| `programs.js` | 从 `webcal/games/*.md` 提取并内嵌的程序数据 |
 | `ui.js` | 键盘、LCD、模式状态机 |
 
 ## 复现已知问题
@@ -108,7 +108,7 @@ python3 -m http.server 8000
 以下步骤可以让任何人独立确认问题出在原页数据而非模拟器：
 
 1. **18 号報錯**：PRGM 翻到第 18 条按 `EXE` → 显示 `Syntax ERROR @「( Y ≠ 7 ) …」`。
-   对照 `games/18-memory-game-3.md`，该行 `Rnd( A ÷ 10 - 0.5 :` 缺少右括号。
+   对照 `webcal/games/18-memory-game-3.md`，该行 `Rnd( A ÷ 10 - 0.5 :` 缺少右括号。
 2. **14、15 号无法载入**：`programs.js` 中这两条未收录。原页含 `BAD`、`GD` 裸文本，
    而 fx-50F PLUS 无字符串显示、无 G 变量。
 3. **字节数不一致**：PRGM 列表中显示为 `60b(算66)` 形式，左为原页标称、右为模拟器计算。
