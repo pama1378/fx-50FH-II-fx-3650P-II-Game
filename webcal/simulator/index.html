@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>CASIO fx-50F PLUS / fx-50FH 模擬器</title>
+<style>
+  :root{
+    --case:#1c1f26; --case2:#262a33; --key:#3a4050; --keytop:#4a5164;
+    --accent:#c8a15a; --lcd:#b9c7a8; --lcdink:#1b2416; --red:#b8412f; --blue:#2f5fb8;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:#0e1014;color:#dfe3ea;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+       display:flex;justify-content:center;padding:16px 10px 40px}
+  .wrap{width:100%;max-width:430px}
+  .calc{background:linear-gradient(180deg,var(--case2),var(--case));border-radius:18px;padding:14px 12px 16px;
+        box-shadow:0 18px 40px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06)}
+  .brand{display:flex;justify-content:space-between;align-items:baseline;color:#8d95a6;font-size:11px;letter-spacing:.12em;margin:2px 4px 8px}
+  .brand b{color:#cfd6e4;font-size:13px;letter-spacing:.06em}
+
+  /* LCD */
+  .lcd{background:linear-gradient(180deg,#c6d3b4,#aebd9c);border-radius:8px;padding:8px 10px 10px;
+       border:2px solid #0c0f13;box-shadow:inset 0 3px 8px rgba(0,0,0,.35);font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace}
+  .ind{font-size:9px;letter-spacing:.14em;color:#3d4a33;height:12px;white-space:nowrap;overflow:hidden;text-align:right}
+  .line{font-size:23px;line-height:1.25;color:var(--lcdink);height:30px;text-align:right;overflow:hidden;white-space:nowrap;letter-spacing:.03em}
+  .line.err{color:#7a1810}
+  .blink{animation:bk 1s steps(2) infinite}
+  @keyframes bk{50%{opacity:.35}}
+
+  /* 鍵盤 */
+  .krow{display:flex;gap:5px;margin-top:5px}
+  .key{flex:1;min-width:0;height:42px;border:none;border-radius:7px;background:linear-gradient(180deg,var(--keytop),var(--key));
+       color:#e8ecf4;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 2px 0 #171a20,inset 0 1px 0 rgba(255,255,255,.12);
+       transition:transform .04s,filter .1s;padding:0 2px}
+  .key:active{transform:translateY(1px);filter:brightness(1.15)}
+  .key.wide{font-size:12px}
+  .key.exe{background:linear-gradient(180deg,#5d6b86,#3f4a5e);flex:1.2}
+  .key.on{background:linear-gradient(180deg,#7a3a30,#55261e)}
+  body.shifted .key{box-shadow:0 2px 0 #171a20,inset 0 0 0 1px rgba(200,161,90,.55)}
+  body.alphaed .key{box-shadow:0 2px 0 #171a20,inset 0 0 0 1px rgba(90,150,200,.55)}
+
+  /* 面板 */
+  .panel{margin-top:16px}
+  .panel h2{font-size:13px;color:#9aa4b6;font-weight:600;margin:16px 0 6px;letter-spacing:.04em}
+  textarea{width:100%;height:96px;background:#141821;color:#cfd6e4;border:1px solid #2a3140;border-radius:8px;
+           padding:8px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;resize:vertical}
+  .btnrow{display:flex;gap:8px;margin-top:8px}
+  .btn{flex:1;padding:9px;border:none;border-radius:8px;background:#2b3342;color:#dfe3ea;font-size:13px;cursor:pointer}
+  .btn:hover{background:#354052}
+  .btn.pri{background:#2f5fb8}
+  .btn.pri:hover{background:#3a6ed0}
+  .note{font-size:11px;color:#7d8698;line-height:1.6;margin-top:10px}
+  .note code{color:#c8a15a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="calc">
+    <div class="brand"><b>fx-50F PLUS</b><span>680 BYTES</span></div>
+    <div class="lcd">
+      <div class="ind" id="ind"></div>
+      <div class="line" id="l1"></div>
+      <div class="line" id="l2"></div>
+    </div>
+    <div id="keypad"></div>
+  </div>
+
+  <div class="panel">
+    <h2>自訂程式</h2>
+    <textarea id="custom" placeholder="把程式貼在這裡，例如：
+?→A: A×2◢"></textarea>
+    <div class="btnrow">
+      <button class="btn" id="customInfo">計算 bytes</button>
+      <button class="btn pri" id="customRun">執行</button>
+    </div>
+    <div class="note">
+      <p><b>COMP</b> 模式：直接按鍵計算，<code>EXE</code> 求值。</p>
+      <p><b>PRGM</b> 模式：按 <code>MODE</code> 進入，<code>×</code>/<code>÷</code> 切換程式，<code>EXE</code> 執行。執行中 <code>?</code> 提示輸入數字，<code>EXE</code> 確認。</p>
+      <p>程式碼原樣轉錄自 WebCal，未改動；見倉庫 <code>webcal/NOTICE.md</code>。</p>
+    </div>
+  </div>
+</div>
+<script src="engine.bundle.js"></script>
+<script src="programs.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
