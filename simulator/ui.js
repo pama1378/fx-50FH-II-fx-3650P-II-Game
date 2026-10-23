@@ -58,6 +58,7 @@ function press(k){
     case 'SHIFT': S.shift=!S.shift; S.alpha=false; return render();
     case 'ALPHA': S.alpha=!S.alpha; S.shift=false; return render();
     case 'MODE': return cycleMode();
+    case 'REPLAY': if(S.mode==='PRGM'){ S.progIdx=(S.progIdx+1)%listFor().length; showProg(listFor()); } return;
     case 'ON': reset(); return;
     case 'AC': S.entry=''; S.line1=''; S.line2=''; return render();
     case 'DEL': S.entry=S.entry.slice(0,-1); return showEntry();
@@ -126,7 +127,7 @@ function tokenFor(k){
     'x²':'²', 'x³':'³', 'x⁻¹':'⁻¹',
     '√':'√(', 'log':'log(', 'ln':'ln(', '∛':'∛(', 'e^':'e^(',
     'sin':'sin(', 'cos':'cos(', 'tan':'tan(',
-    'Abs':'Abs(', 'π':'π', 'Ans':'Ans', 'EXP':'E',
+    'Abs':'Abs(', 'π':'π', 'Ans':'Ans', 'EXP':'E', '°':'°',
   };
   if(S.shift && shifted[k]) return shifted[k];
   return base[k] != null ? base[k] : null;
@@ -276,59 +277,43 @@ function inputKey(k){
 }
 
 /* ---------- 鍵盤佈局 ---------- */
+// 5 列佈局，對齊 fx-50F PLUS / MS 系列：每鍵帶 SHIFT（金）與 ALPHA（紅）副標
 const ROWS = [
-  [['SHIFT','SHIFT'],['ALPHA','ALPHA'],['MODE','MODE'],['ON','ON']],
-  [['x³','x³'],['x²','x²'],['^','^'],['√','√'],['log','log'],['ln','ln'],['x⁻¹','x⁻¹'],['Abs','Abs']],
-  [['sin','sin'],['cos','cos'],['tan','tan'],['(','('],[')',')'],['π','π'],['EXP','EXP'],['Ans','Ans']],
-  [['7','7'],['8','8'],['9','9'],['DEL','DEL'],['AC','AC']],
-  [['4','4'],['5','5'],['6','6'],['×','×'],['÷','÷']],
-  [['1','1'],['2','2'],['3','3'],['+','+'],['−','−']],
-  [['0','0'],['.','.'],[',',','],['EXE','EXE']],
+  [{l:'SHIFT',k:'SHIFT',cls:'shift'},{l:'ALPHA',k:'ALPHA',cls:'alpha'},
+   {l:'◀ ▶',k:'REPLAY',cls:'replay'},{l:'MODE',k:'MODE',cls:'mode'},{l:'ON',k:'ON',cls:'on'}],
+  [{l:'x³',k:'x³',fn:1},{l:'x²',k:'x²',sh:'x³',fn:1},{l:'x⁻¹',k:'x⁻¹',fn:1},{l:'^',k:'^'},{l:'√',k:'√',sh:'∛',fn:1}],
+  [{l:'log',k:'log',sh:'10ˣ',fn:1},{l:'ln',k:'ln',sh:'eˣ',fn:1},{l:'(-)',k:'−'},{l:'°′″',k:','},
+   {l:'Abs',k:'Abs',al:'M',fn:1}],
+  [{l:'sin',k:'sin',sh:'sin⁻¹',fn:1},{l:'cos',k:'cos',sh:'cos⁻¹',fn:1},{l:'tan',k:'tan',sh:'tan⁻¹',fn:1},
+   {l:'(',k:'('},{l:')',k:')'}],
+  [{l:'7',k:'7',num:1,al:'A'},{l:'8',k:'8',num:1,al:'B'},{l:'9',k:'9',num:1,al:'C'},
+   {l:'DEL',k:'DEL'},{l:'AC',k:'AC'}],
+  [{l:'4',k:'4',num:1,al:'D'},{l:'5',k:'5',num:1,al:'E'},{l:'6',k:'6',num:1,al:'F'},
+   {l:'×',k:'×'},{l:'÷',k:'÷'}],
+  [{l:'1',k:'1',num:1,al:'X'},{l:'2',k:'2',num:1,al:'Y'},{l:'3',k:'3',num:1,al:'M'},
+   {l:'+',k:'+'},{l:'−',k:'−'}],
+  [{l:'0',k:'0',num:1},{l:'.',k:'.'},{l:'EXP',k:'EXP',fn:1,sh:'π'},{l:'Ans',k:'Ans',fn:1},{l:'EXE',k:'EXE',cls:'exe'}],
 ];
 
 function buildKeypad(){
   const kp = $('keypad');
   kp.innerHTML = '';
   for(const row of ROWS){
-    const r = document.createElement('div');
-    r.className = 'krow';
-    for(const [label,key] of row){
+    for(const c of row){
       const b = document.createElement('button');
-      b.className = 'key' + (key==='EXE'?' exe':'') + (key==='ON'?' on':'') + (label.length>2?' wide':'');
-      b.textContent = label;
-      b.onclick = ()=>press(key);
-      r.appendChild(b);
+      b.className = 'key' + (c.num?' num':'') + (c.fn?' fn':'') + (c.cls?' '+c.cls:'');
+      if(c.sh){ const s=document.createElement('span'); s.className='sh'; s.textContent=c.sh; b.appendChild(s); }
+      if(c.al){ const a=document.createElement('span'); a.className='al'; a.textContent=c.al; b.appendChild(a); }
+      const t=document.createElement('span'); t.textContent=c.l; b.appendChild(t);
+      b.onclick = ()=>press(c.k);
+      kp.appendChild(b);
     }
-    kp.appendChild(r);
   }
-}
-
-/* ---------- 自訂程式 ---------- */
-function initCustom(){
-  const ta = $('custom');
-  ta.addEventListener('input', ()=>{ S.customCode = ta.value; });
-  $('customRun').onclick = ()=>{
-    S.mode='PRGM';
-    S.progIdx = programs().length; // 最後一項 = 自訂
-    const p = {n:99,title:'自訂程式',en:'custom',authors:['你'],declared:0,code:S.customCode};
-    startRun(p);
-  };
-  $('customInfo').onclick = ()=>{
-    try{
-      const pr = new C.Program(S.customCode);
-      S.line1 = 'bytes';
-      S.line2 = pr.bytes + ' (' + (680-pr.bytes) + ' left)';
-    }catch(e){
-      S.error=true; S.line1='Syntax'; S.line2=e.message.slice(0,20);
-    }
-    render();
-  };
 }
 
 /* ---------- 啟動 ---------- */
 window.addEventListener('DOMContentLoaded', ()=>{
   buildKeypad();
-  initCustom();
   S.line1=''; S.line2='READY';
   render();
 });
