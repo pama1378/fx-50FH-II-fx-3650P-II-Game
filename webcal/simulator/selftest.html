@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>引擎自检 — fx-50F PLUS 模拟器</title>
+<style>
+  body{margin:0;padding:24px 16px;background:#0e1014;color:#dfe3ea;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+  .wrap{max-width:640px;margin:0 auto}
+  h1{font-size:17px;font-weight:600;margin:0 0 4px}
+  .sub{color:#7d8698;font-size:12px;margin-bottom:16px}
+  .sum{font-size:14px;padding:10px 12px;border-radius:8px;margin-bottom:14px;background:#171c25;border:1px solid #2a3140}
+  .sum.ok{border-color:#2f6b42;color:#8fd6a5}
+  .sum.bad{border-color:#7a2a22;color:#e0938a}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  td{padding:7px 6px;border-bottom:1px solid #1c222c;vertical-align:top}
+  td.n{width:22px}
+  .ok{color:#79c98f}
+  .bad{color:#e0705f}
+  .want{color:#7d8698;font-size:11px}
+  a{color:#6ea8ff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>引擎自检</h1>
+  <div class="sub">fx-50F PLUS 模拟器 · 直接打开本页即可验证引擎与程序数据</div>
+  <div class="sum" id="sum">运行中…</div>
+  <table id="rows"></table>
+  <p class="sub" style="margin-top:18px"><a href="index.html">← 回到模拟器</a></p>
+</div>
+<script src="engine.bundle.js"></script>
+<script src="programs.js"></script>
+<script src="selftest.js"></script>
+<script>
+(function(){
+  var res;
+  try{ res = window.runSelfTest(window.CASIO); }
+  catch(e){ document.getElementById('sum').className='sum bad'; document.getElementById('sum').textContent='自检脚本执行失败：'+e.message; return; }
+  var fail = res.filter(function(r){return !r.ok;});
+  var s = document.getElementById('sum');
+  s.className = 'sum ' + (fail.length? 'bad':'ok');
+  s.textContent = fail.length
+    ? fail.length+' / '+res.length+' 项失败'
+    : res.length+' / '+res.length+' 项全部通过';
+  var tb = document.getElementById('rows');
+  res.forEach(function(r){
+    var tr = document.createElement('tr');
+    var td1 = document.createElement('td'); td1.className='n'; td1.textContent = r.ok?'✓':'✗'; td1.className += r.ok?' ok':' bad';
+    var td2 = document.createElement('td');
+    td2.textContent = r.name;
+    if(!r.ok && r.want!==undefined){
+      var d = document.createElement('div'); d.className='want';
+      d.textContent = '得到 ' + r.got + ' · 期望 ' + r.want;
+      td2.appendChild(d);
+    }
+    tr.appendChild(td1); tr.appendChild(td2); tb.appendChild(tr);
+  });
+})();
+</script>
+</body>
+</html>
